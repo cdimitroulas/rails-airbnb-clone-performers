@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20161114175912) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.string   "password"
     t.string   "category"
     t.text     "event_types",                                      array: true
