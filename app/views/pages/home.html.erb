@@ -1,2 +1,36 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render 'shared/navbar' %>
+
+<div class="banner" style="background-image: url('https://unsplash.com/search/musician?photo=IOzGybDmKR8');">
+  <div class="banner-content text-center">
+      <div class="container">
+        <h1>Hire a performer</h1>
+          <p>Make your event a unique experience!</p>
+        <div class="row">
+          <div class="col-xs-12">
+             <form action="/performers" method="/get">
+                <div class="form-search form-inline">
+                  <select class="form-control">
+                  <option>Wedding</option>
+                  <option>Corporate event</option>
+                  <option>Private party</option>
+                  <option>Charity event</option>
+                  </select>
+                  <select class="form-control">
+                  <option>Rock</option>
+                  <option>Pop</option>
+                  <option>DJs</option>
+                  <option>Entertainers</option>
+                  </select>
+                  <input type="date" placeholder="date" class="form-control">
+                  <input type="time" placeholder="hh : mm" class="form-control">
+                  <input type="time" placeholder="hh : mm" class="form-control">
+                  <input type="text" placeholder="City" class="form-control">
+                  <input type="submit" value="Search" class="navbar-wagon-item navbar-wagon-button btn">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
