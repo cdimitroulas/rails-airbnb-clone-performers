@@ -33,6 +33,7 @@ class DeviseCreatePerformers < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :password
       t.string :category
+      t.text :event_types, array: true
       t.text :profile
       t.string :travelling_distance
       t.float :hourly_rate

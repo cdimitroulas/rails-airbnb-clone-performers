@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20161114175912) do
     t.datetime "confirmation_sent_at"
     t.string   "password"
     t.string   "category"
+    t.text     "event_types",                                      array: true
     t.text     "profile"
     t.string   "travelling_distance"
     t.float    "hourly_rate"
