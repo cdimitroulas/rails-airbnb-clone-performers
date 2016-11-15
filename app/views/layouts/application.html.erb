@@ -10,10 +10,12 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <%= render 'shared/navbar' %>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
 
     <%= javascript_include_tag 'application' %>
