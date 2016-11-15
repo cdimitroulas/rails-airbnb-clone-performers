@@ -3,25 +3,33 @@
   <div class="container text-center">
     <div class="filters">
       <div class="row">
-        <div class="col-xs-6 col-md-2">Event</div>
-        <div class="col-xs-6 col-md-2"><%= params[:event]%></div>
-        <div class="col-xs-6 col-md-2">Category</div>
-        <div class="col-xs-6 col-md-2"><%= params[:category]%></div>
-        <div class="col-xs-6 col-md-2">Date</div>
-        <div class="col-xs-6 col-md-2"><%= params[:date] %></div>
-        <div class="col-xs-6 col-md-2">City</div>
-        <div class="col-xs-6 col-md-2"><%= params[:city]%></div>
+        <div class="col-xs-6 col-md-3 form-group">
+          <label>Event</label>
+          <input value="<%= params[:event] %>" class="form-control" name="event">
+        </div>
+        <div class="col-xs-6 col-md-3 form-group">
+          <label>Category</label>
+          <input value="<%= params[:category] %>" class="form-control" name="category">
+        </div>
+        <div class="col-xs-6 col-md-3 form-group">
+          <label>Date</label>
+          <input value="<%= params[:date] %>" class="form-control" name="category">
+        </div>
+        <div class="col-xs-6 col-md-3 form-group">
+          <label>City</label>
+          <input value="<%= params[:city] %>" class="form-control" name="category">
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- <div class="wrapper">
+<div class="wrapper">
   <div class="container text-center">
     <div class="row">
       <form action="/performers" method="/get">
           <div class="form-search form-inline">
-            <input type="" name="" value="<%= params[:event] %>" type="hidden" class="form-control" name="event">
+            <input value="<%= params[:event] %>" type="hidden" class="form-control" name="event">
             <input value="<%= params[:category] %>" type="hidden" class="form-control" name="category">
             <input value="<%= params[:date] %>" type="hidden" class="form-control" name="date">
             <input value="<%= params[:time_in] %>" type="hidden" class="form-control">
@@ -34,7 +42,7 @@
       </form>
     </div>
   </div>
-</div> -->
+</div>
 
 <div class="container">
   <div class="row">
