@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # Search result page(index) and show page for the performers
-  resources :performers, only: [:index, :show]
+  resources :performers, only: [:index, :show, :edit]
 
   # Route for user dashboard
   resources :users, only: [:show]
