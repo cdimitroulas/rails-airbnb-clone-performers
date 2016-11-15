@@ -1,4 +1,4 @@
-<div class="show-banner">
+<div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= @performer.picture %>);">
 </div>
 
 <br>
@@ -9,13 +9,13 @@
     <div class="row">
       <div class="col-lg-8 col-sm-8">
         <div class="summary-component">
-          <h2><%= 'Performer Name' %></h2>
-          <h5><%= 'Performer City' %></h5>
+          <h2><%= @performer.first_name + @performer.last_name %></h2>
+          <h5><%= @performer.city %></h5>
         </div>
       </div>
       <div class="col-md-3 text-center hide-sm">
         <div class="profile-image">
-          <img src="" alt="profile-picture" class="avatar-large">
+          <img src="<%= @performer.picture %>" alt="profile-picture" class="avatar-large">
         </div>
       </div>
     </div>
@@ -23,9 +23,9 @@
     <div class="row text-center">
       <div class="col-sm-12">
         <hr>
-        <div class="col-sm-3"><img src="" alt="icon"></div>
-        <div class="col-sm-3"><img src="" alt="icon"></div>
-        <div class="col-sm-3"><img src="" alt="icon"></div>
+        <div class="col-sm-3"><img src="" alt="tent icon"></div>
+        <div class="col-sm-3"><img src="" alt="microphone icon"></div>
+        <div class="col-sm-3"><img src="" alt="pound icon"></div>
         <div class="col-sm-3"><img src="" alt="icon"></div>
       </div>
     </div>
@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col-sm-12">
         <h4>About this performer</h4>
-        <p>This performer is blah blah blah. They have been playing the banjo for 25 years. Incredible modern banjo sound.</p>
+        <p><%= @performer.profile %></p>
         <a href="">Contact performer</a>
       </div>
     </div>
@@ -58,10 +58,10 @@
         <h4>Details</h4>
       </div>
       <div class="col-sm-9">
-        <p>Members: <strong>2</strong></p>
-        <p>Category: <strong>Magician</strong></p>
-        <p>Good for: <strong>Birthdays, Children's Parties</strong></p>
-        <p>Special Requirements: <strong>None</strong></p>
+          <p>Members: <strong><%= @performer.members %></strong></p>
+          <p>Category: <strong><%= @performer.category %></strong></p>
+          <p>Good for: <strong>@performer.good_for</strong></p>
+          <p>Special Requirements: <strong><%= @performer.requirements ? @performer.requirements : 'None' %></strong></p>
       </div>
     </div>
 
@@ -72,9 +72,9 @@
         <h4>Prices</h4>
       </div>
       <div class="col-sm-9">
-        <p>Rate: <strong>2</strong></p>
-        <p>Weekday Discount: <strong>25%</strong></p>
-        <p>Cancellation: <strong>Flexible</strong></p>
+        <p>Rate: <strong><%= @performer.hourly_rate %></strong></p>
+        <p>Weekday Discount: <strong><%= @performer.discount %>%</strong></p>
+        <p>Cancellation: <strong><%= @performer.cancellation_policy %></strong></p>
       </div>
     </div>
   </div>
@@ -84,7 +84,8 @@
   <div id="reviews">
     <div class="row">
       <div class="col-sm-12">
-        <h4>8 Reviews <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></h4>
+        <h4><%= @reviews.count %> Reviews <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></h4>
+        <!-- performer.rating.times -->
       </div>
     </div>
 
@@ -100,7 +101,7 @@
   <div id="contact-button">
     <div class="row">
       <div class="col-sm-12">
-        <button class="btn btn-secondary">Contact performer</button>
+        <button class="btn btn-secondary">Book performer</button>
       </div>
     </div>
   </div>
