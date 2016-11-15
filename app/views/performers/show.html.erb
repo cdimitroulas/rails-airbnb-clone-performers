@@ -1,5 +1,4 @@
 <div class="banner">
-
 </div>
 
 <div class="container">
@@ -8,8 +7,8 @@
     <div class="row">
       <div class="col-lg-8 col-sm-8">
         <div class="summary-component">
-          <h2><%= 'Perfomer Name' %></h2>
-          <h5><%= 'Perfomer City' %></h5>
+          <h2><%= 'Performer Name' %></h2>
+          <h5><%= 'Performer City' %></h5>
         </div>
       </div>
       <div class="col-md-3 text-center hide-sm">
@@ -84,12 +83,41 @@
     <div class="row">
       <div class="col-sm-12">
         <h4>8 Reviews <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></h4>
-        <br>
-        Insert review table
-        <hr>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <%= @reviews.each do |review| %>
+        <div class="col-sm-12">
+          _user_avatar_
+          <%= 'review.username' %>
+          <%= 'review.title' %>
+          <%= 'review.description' %>
+          Helpful?
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-sm-12">
         <button class="btn btn-secondary">Contact performer</button>
       </div>
     </div>
+  </div>
+
+  <hr>
+
+  <div id="map">
+    Insert map here with radius of perfomers possible locations.
+  </div>
+
+  <hr>
+
+  <div id="similar-performers">
+    Similar performers cards?
   </div>
 
 </div>
