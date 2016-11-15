@@ -1,2 +1,12 @@
 @import "home";
 @import "show";
+
+ body.performers.index {
+  .container {
+      padding: 25px 0;
+  };
+}
+
+label {
+  font-weight: 400;
+}

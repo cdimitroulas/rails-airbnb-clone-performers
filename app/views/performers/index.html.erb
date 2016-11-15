@@ -1,55 +1,54 @@
 
-<div class="wrapper">
+<div class="wrapper-grey">
   <div class="container text-center">
     <div class="filters">
-      <div class="row">
-        <div class="col-xs-6 col-md-3 form-group">
-          <label>Event</label>
-          <input value="<%= params[:event] %>" class="form-control" name="event">
-        </div>
-        <div class="col-xs-6 col-md-3 form-group">
-          <label>Category</label>
-          <input value="<%= params[:category] %>" class="form-control" name="category">
-        </div>
-        <div class="col-xs-6 col-md-3 form-group">
-          <label>Date</label>
-          <input value="<%= params[:date] %>" class="form-control" name="category">
-        </div>
-        <div class="col-xs-6 col-md-3 form-group">
-          <label>City</label>
-          <input value="<%= params[:city] %>" class="form-control" name="category">
-        </div>
-      </div>
+      <form action="/performers" method="/get">
+        <div class="row">
+
+          <div class="col-xs-6 col-md-3 form-group">
+            <label>Event</label>
+            <input value="<%= params[:event] %>" class="form-control" name="event">
+          </div>
+          <div class="col-xs-6 col-md-3 form-group">
+            <label>Category</label>
+            <input value="<%= params[:category] %>" class="form-control" name="category">
+          </div>
+          <div class="col-xs-6 col-md-3 form-group">
+            <label>Date</label>
+            <input value="<%= params[:date] %>" class="form-control" name="date">
+          </div>
+          <div class="col-xs-6 col-md-3 form-group">
+            <label>City</label>
+            <input value="<%= params[:city] %>" class="form-control" name="city">
+          </div>
+       </div>
     </div>
   </div>
 </div>
 
-<div class="wrapper">
+<div class="wrapper-grey">
   <div class="container text-center">
     <div class="row">
-      <form action="/performers" method="/get">
-          <div class="form-search form-inline">
-            <input value="<%= params[:event] %>" type="hidden" class="form-control" name="event">
-            <input value="<%= params[:category] %>" type="hidden" class="form-control" name="category">
-            <input value="<%= params[:date] %>" type="hidden" class="form-control" name="date">
-            <input value="<%= params[:time_in] %>" type="hidden" class="form-control">
-            <input value="<%= params[:time_out] %>" type="hidden" class="form-control">
-            <input value="<%= params[:city] %>" type="hidden" class="form-control" name="city">
-            <input type="min-price" type="hidden" placeholder="Minimum Price" class="form-control" name="min-price">
-            <input type="max-price" type="hidden" placeholder="Maximum Price" class="form-control" name="max-price">
-            <input type="submit" value="Search" class="navbar-wagon-item navbar-wagon-button btn">
+        <div class="form-search form-inline">
+          <input value="<%= params[:time_in] %>" type="hidden" name="time_in" class="form-control">
+          <input value="<%= params[:time_out] %>" type="hidden" name="time_out" class="form-control">
+          <input value="<%= params[:min_price] %>" type="min-price" placeholder="Minimum Price" class="form-control" name="min_price">
+          <input value="<%= params[:max_price] %>" type="max-price" placeholder="Maximum Price" class="form-control" name="max_price">
+          <input type="submit" value="Search" class="navbar-wagon-item navbar-wagon-button btn">
         </div>
       </form>
     </div>
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <% @performers.each do |performer| %>
-      <div class="listing-cards col-xs-12 col-md-4">
-        <%= render "shared/cards", performer: performer %>
-      </div>
-    <% end %>
+<div class="wrapper-grey">
+  <div class="container">
+    <div class="row">
+      <% @performers.each do |performer| %>
+        <div class="listing-cards col-xs-12 col-md-4">
+          <%= render "shared/cards", performer: performer %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
