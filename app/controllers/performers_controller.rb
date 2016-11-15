@@ -1,6 +1,6 @@
 class PerformersController < ApplicationController
   def index
-    @perfomers = Performer.all
+    @performers = Performer.all
     # event_type, category, start_time, end_time, city
   end
 
