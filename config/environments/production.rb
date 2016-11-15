@@ -75,9 +75,9 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  # Mailer default_url
+  # Mailer config
   config.action_mailer.default_url_options = { host: 'airbnb-clone-performers.herokuapp.com'}
-
+  config.action_mailer.delivery_method = :test
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
