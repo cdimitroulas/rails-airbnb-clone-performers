@@ -51,3 +51,9 @@
     opacity: 1;
   }
 }
+#label-and-icon{
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  flex-direction: column;
+}

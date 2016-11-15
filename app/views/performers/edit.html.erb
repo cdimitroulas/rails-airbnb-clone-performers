@@ -22,7 +22,10 @@
       </div>
       <div class="col-md-3 text-center hide-sm">
         <div class="profile-image">
-          <img src="" alt="profile-picture" class="avatar-large">
+          <div class="editable-text">
+            <img src="" alt="profile-picture" class="avatar-large">
+             <div class="edit-icon"><%= icon('pencil') %></div>
+          </div>
         </div>
       </div>
     </div>
@@ -31,26 +34,14 @@
       <div class="editable-text" id="icons">
         <div class="col-sm-12">
           <hr>
-            <div class="row">
-              <div class="col-sm-3"><%= icon('list-ul') %></div>
-              <div class="col-sm-3"><%= icon('bars') %></div>
-              <div class="col-sm-3"><%= icon('gbp') %></div>
-              <div class="col-sm-3"><%= icon('trophy') %></div>
-              <div class="edit-icon"><%= icon('pencil') %></div>
-            </div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('list-ul') %>Type</div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('bars') %>Category</div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('gbp') %>Rate(£ or ££ etc)</div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('trophy') %>Rating(Well rated?)</div>
+              <div class="edit-icon" id="label-and-icon"><%= icon('pencil') %></div>
         </div>
       </div>
     </div>
-
-    <div class="row text-center">
-      <div class="col-sm-12">
-        <div class="col-sm-3">Type</div>
-        <div class="col-sm-3">Category</div>
-        <div class="col-sm-3">Rate(£ or ££ etc)</div>
-        <div class="col-sm-3">Rating(Well rated?)</div>
-      </div>
-    </div>
-  </div>
 
   <hr>
 
