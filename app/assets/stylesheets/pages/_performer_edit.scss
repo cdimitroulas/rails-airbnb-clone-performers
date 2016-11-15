@@ -60,3 +60,17 @@
 .hidden{
   visibility: hidden;
 }
+#icons-form{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#description-textarea{
+  min-width: 100%;
+}
+#event-types, .list-event-types{
+  display: inline-block;
+}
+.list-event-types > li {
+  margin: 0 5px;
+}

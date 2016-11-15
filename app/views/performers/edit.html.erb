@@ -1,5 +1,6 @@
 <form class="form-inline">
-<div class="edit-banner show-banner">
+<div class="edit-banner show-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path(current_performer.picture) %>)
+;">
   <div class="edit-icon"><%= icon('pencil') %></div>
 </div>
 
@@ -22,7 +23,7 @@
             </div>
 
           <div class="editable-text">
-            <h5>Performer city<%= current_performer.city %></h5>
+            <h5><%= current_performer.city %></h5>
             <div class="edit-icon"><%= icon('pencil') %></div>
           </div>
 
@@ -45,14 +46,23 @@
       <div class="editable-text" id="icons">
         <div class="col-sm-12">
           <hr>
-              <div class="col-sm-3" id="label-and-icon"><%= icon('list-ul') %>Type</div>
-              <div class="col-sm-3" id="label-and-icon"><%= icon('bars') %>Category</div>
-              <div class="col-sm-3" id="label-and-icon"><%= icon('gbp') %>Rate(£ or ££ etc)</div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('list-ul') %><%= current_performer.event_types %></div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('bars') %><%= current_performer.category %></div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('gbp') %><%= current_performer.hourly_rate.to_s + "/hour" %></div>
               <div class="col-sm-3" id="label-and-icon"><%= icon('trophy') %>Rating(Well rated?)</div>
               <div class="edit-icon" id="label-and-icon"><%= icon('pencil') %></div>
         </div>
+
+        <div class="col-sm-12 hidden">
+          <hr>
+          <div class="form-div" id="icons-form">
+            <input type="text" name="event_type" value="<%= current_performer.event_types %>" class="form-control">
+            <input type="text" name="category" value="<%= current_performer.category %>" class="form-control">
+            <input type="text" name="hourly_rate" value="<%= current_performer.hourly_rate %>" class="form-control">
+            <div class="col-sm-3" id="label-and-icon"><%= icon('trophy') %>Rating(Well rated?)</div>
+          </div>
+        </div>
       </div>
-      <div class="hidden form-div"></div>
     </div>
 
   <hr>
@@ -63,8 +73,15 @@
         <div class="col-sm-12">
           <h4>About this performer</h4>
             <p>This performer is blah blah blah. They have been playing the banjo for 25 years. Incredible modern banjo sound.</p>
-            <a href="">Contact performer</a>
+            <a href="">Contact <%= current_performer.first_name %></a>
             <div class="edit-icon"><%= icon('pencil') %></div>
+        </div>
+        <div class="col-sm-12 hidden">
+          <div class="form-div">
+            <h4>About this performer</h4>
+            <textarea name="description" class="form-control" id="description-textarea">some description </textarea><br>
+            <a href="">Contact <%= current_performer.first_name %></a>
+          </div>
         </div>
       </div>
     </div>
@@ -78,11 +95,42 @@
         </div>
         <div class="col-sm-9">
           <p>Members: <strong>2</strong></p>
-          <p>Category: <strong>Magician</strong></p>
-          <p>Good for: <strong>Birthdays, Children's Parties</strong></p>
+          <p>Category: <strong><%= current_performer.category %></strong></p>
+          <p id="event-types">Good for:</p>
+            <ul class="list-inline list-event-types">
+              <% current_performer.event_types.each do |event| %>
+              <li>
+                <strong><%= event %></strong>
+              </li>
+            <% end %>
+            </ul>
           <p>Special Requirements: <strong>None</strong></p>
         </div>
         <div class="edit-icon"><%= icon('pencil') %></div>
+      </div>
+      <div class="form-div hidden">
+        <div class="col-sm-3">
+          <h4>Details</h4>
+        </div>
+        <div class="col-sm-9">
+          <div class="row">
+            <div class="form-group">
+            <label>Members:</label>
+            <input type="text" name="members" value="<%= current_performer.members %>" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label>Category:</label>
+              <input type="text" name="category" value="<%= current_performer.category %>" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label>Good For:</label>
+              <input type="text" name="event_types", class="form-control">
+            </div>
+          </div>
       </div>
     </div>
 
@@ -103,10 +151,13 @@
     </div>
   </div>
 
-  <hr>
-
-  <button type="submit" class="btn btn-primary">Save Changes</button>
+    <div class="text-center">
+      <hr>
+      <button type="submit" class="btn btn-primary btn-lg">Save Changes to Profile</button>
+    </div>
   </form>
+
+  <hr>
 
   <div id="reviews">
     <div class="row">
