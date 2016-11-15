@@ -24,7 +24,11 @@
 </div>
 
 <div class="container">
-  <% @performers.each do |performer| %>
-    <%= render "shared/cards", performer: performer %>
-  <% end %>
+  <div class="row">
+    <% @performers.each do |performer| %>
+      <div class="listing-cards col-xs-12 col-md-4">
+        <%= render "shared/cards", performer: performer %>
+      </div>
+    <% end %>
+  </div>
 </div>
