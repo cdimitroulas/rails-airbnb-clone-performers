@@ -9,7 +9,7 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
     <!-- Navbar -->
     <%= render 'shared/navbar' %>
 
@@ -21,9 +21,7 @@
     <% end %>
 
     <!-- Main Page -->
-    <div class="container">
-      <%= yield %>
-    </div>
+    <%= yield %>
 
     <!-- Javascripts -->
     <%= javascript_include_tag 'application' %>
