@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # Search result page(index) and show page for the performers
   resources :performers, only: [:index, :show]
 
+  # Route for user dashboard
   resources :users, only: [:show]
+
+  # Route for performer dashboard
+  get '/dashboard', to: 'performers#dashboard'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
