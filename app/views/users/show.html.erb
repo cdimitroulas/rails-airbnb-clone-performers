@@ -1,4 +1,45 @@
-<div class="container">
-  <h1>Welcome <%= current_user.first_name + ' ' +  current_user.last_name %></h1>
-  <p>This is your dashboard</p>
+<div class="wrapper-grey padded">
+  <div class="container dashboard">
+    <h1>Welcome <%= current_user.first_name %></h1>
+    <div class="row">
+      <div class="profile-update text-center col-md-3">
+      <br>
+        <img src="http://placehold.it/200x200" class="avatar-square">
+        <div class="profile-link">
+          <p><%= link_to 'View profile' %></p>
+          <p><%= link_to 'Edit profile' %></p>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <div class="messages">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="headtitle-profile">Your messages</div>
+                <div class="messages-details">John</div>
+              </div>
+          </div>
+      </div>
+      <br>
+      <div class="bookings">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="headtitle-profile">Your next booking
+              </div>
+              <div class="last-booking">
+                <img src="http://placehold.it/100x100" class="avatar">
+                <div class="booking_details">
+                  <p>current_user.bookings.last DATE</p>
+                  <p>STARTING TIME</p>
+                  <p>ENDING TIME</p>
+                  <p>ARTIST NAME</p>
+                </div>
+              </div>
+              <div class="previous-bookings"><%= link_to 'Past bookings'%></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
