@@ -10,14 +10,22 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
+    <!-- Navbar -->
     <%= render 'shared/navbar' %>
+
+    <!-- Notices and Alerts -->
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% elsif alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
-    <%= yield %>
 
+    <!-- Main Page -->
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <!-- Javascripts -->
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
