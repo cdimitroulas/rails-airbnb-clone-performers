@@ -5,6 +5,6 @@ class PerformersController < ApplicationController
   end
 
   def show
-    @perfomer = Perfomer.find(params[:id])
+    @performer = Performer.find(params[:id])
   end
 end
