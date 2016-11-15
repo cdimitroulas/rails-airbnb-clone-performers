@@ -3,10 +3,22 @@
   <div class="container text-center">
     <div class="filters">
       <div class="row">
-        <div class="col-xs-6 col-sm-3">Dates</div>
-        <div class="col-xs-6 col-sm-3"><%= %></div>
-        <div class="col-xs-6 col-sm-3">Category</div>
-        <div class="col-xs-6 col-sm-3"><%= %></div>
+        <div class="col-xs-6 col-md-3 form-group">
+          <label>Event</label>
+          <input value="<%= params[:event] %>" class="form-control" name="event">
+        </div>
+        <div class="col-xs-6 col-md-3 form-group">
+          <label>Category</label>
+          <input value="<%= params[:category] %>" class="form-control" name="category">
+        </div>
+        <div class="col-xs-6 col-md-3 form-group">
+          <label>Date</label>
+          <input value="<%= params[:date] %>" class="form-control" name="category">
+        </div>
+        <div class="col-xs-6 col-md-3 form-group">
+          <label>City</label>
+          <input value="<%= params[:city] %>" class="form-control" name="category">
+        </div>
       </div>
     </div>
   </div>
@@ -14,11 +26,20 @@
 
 <div class="wrapper">
   <div class="container text-center">
-    <div class="filter-price">
-      <div class="row">
-        <div class="col-md-12 text-center filter-price-label"></div>
-        <div class="col-md-12 datareactid="#"></div>
-      </div>
+    <div class="row">
+      <form action="/performers" method="/get">
+          <div class="form-search form-inline">
+            <input value="<%= params[:event] %>" type="hidden" class="form-control" name="event">
+            <input value="<%= params[:category] %>" type="hidden" class="form-control" name="category">
+            <input value="<%= params[:date] %>" type="hidden" class="form-control" name="date">
+            <input value="<%= params[:time_in] %>" type="hidden" class="form-control">
+            <input value="<%= params[:time_out] %>" type="hidden" class="form-control">
+            <input value="<%= params[:city] %>" type="hidden" class="form-control" name="city">
+            <input type="min-price" type="hidden" placeholder="Minimum Price" class="form-control" name="min-price">
+            <input type="max-price" type="hidden" placeholder="Maximum Price" class="form-control" name="max-price">
+            <input type="submit" value="Search" class="navbar-wagon-item navbar-wagon-button btn">
+        </div>
+      </form>
     </div>
   </div>
 </div>
