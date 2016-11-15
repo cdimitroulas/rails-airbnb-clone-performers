@@ -1,13 +1,15 @@
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150');">
-  <div class="card-title"><h3>City</h3></div>
-    <div class="card-description">
-      <h3>Performer</h3>
-        <p>Category</p>
-    </div>
-  <img src="http://placehold.it/100x100" class="card-avatar">
-</div>
-<div class="card-list">
-  <p>Price: £X/per hour</p>
-  <p>Rating: XXXX - # Comments</p>
-</div>
+<%= link_to performer(performer) do %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150');">
+    <div class="card-title"><h3>City</h3></div>
+      <div class="card-description">
+        <h3>Performer</h3>
+          <p>Category</p>
+      </div>
+    <img src="http://placehold.it/100x100" class="card-avatar">
+  </div>
+  <div class="card-list">
+    <p>Price: £X/per hour</p>
+    <p>Rating: XXXX - # Comments</p>
+  </div>
+<% end %>
 
