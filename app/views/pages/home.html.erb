@@ -39,13 +39,13 @@
     <h2 class="text-center">What's on</h2>
       <div class="row">
         <div class="listing-cards col-xs-12 col-md-4">
-          <%= render 'shared/cards' %>
+          <%= render 'shared/cards', performer: Performer.last %>
         </div>
         <div class="listing-cards col-xs-12 col-md-4">
-          <%= render 'shared/cards' %>
+          <%= render 'shared/cards', performer: Performer.last %>
         </div>
         <div class="listing-cards col-xs-12 col-md-4">
-          <%= render 'shared/cards' %>
+          <%= render 'shared/cards', performer: Performer.last %>
         </div>
      </div>
     </div>
