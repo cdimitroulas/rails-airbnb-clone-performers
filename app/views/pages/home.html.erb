@@ -1,6 +1,7 @@
-<%= render 'shared/navbar' %>
 
-<div class="banner" style="background-image: url('https://unsplash.com/search/musician?photo=IOzGybDmKR8');">
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path 'background_image.jpeg' %>)">
+
   <div class="banner-content text-center">
       <div class="container">
         <h1>Hire a performer</h1>
@@ -32,5 +33,19 @@
         </div>
       </div>
     </div>
+  </div>
 
-</div>
+ <%= render 'shared/cards' %>
+        <!-- Your newsletter code -->
+  <div class="container text-center padded">
+  <h2>Contact us</h2>
+    <p>Just send us an email if you want more info</p>
+    <form action="#" class="form-inline">
+      <div class="form-group">
+        <input type="email" placeholder="bob@gmail.com" class="form-control">
+      </div>
+      <input type="submit" value="Send" class="navbar-wagon-item navbar-wagon-button btn">
+    </form>
+  </div>
+
+
