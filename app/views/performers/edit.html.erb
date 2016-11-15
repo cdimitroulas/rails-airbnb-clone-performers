@@ -1,4 +1,5 @@
-<div class="show-banner">
+<div class="edit-banner show-banner">
+  <div class="edit-icon"><%= icon('pencil') %></div>
 </div>
 
 <br>
@@ -9,8 +10,14 @@
     <div class="row">
       <div class="col-lg-8 col-sm-8">
         <div class="summary-component">
-          <h2><%= 'Performer Name' %></h2>
-          <h5><%= 'Performer City' %></h5>
+          <div class="editable-text">
+            <h2><%= 'Performer Name' %></h2>
+            <div class="edit-icon"><%= icon('pencil') %></div>
+          </div>
+          <div class="editable-text">
+            <h5><%= 'Performer City' %></h5>
+            <div class="edit-icon"><%= icon('pencil') %></div>
+          </div>
         </div>
       </div>
       <div class="col-md-3 text-center hide-sm">
@@ -21,12 +28,17 @@
     </div>
 
     <div class="row text-center">
-      <div class="col-sm-12">
-        <hr>
-        <div class="col-sm-3"><img src="" alt="icon"></div>
-        <div class="col-sm-3"><img src="" alt="icon"></div>
-        <div class="col-sm-3"><img src="" alt="icon"></div>
-        <div class="col-sm-3"><img src="" alt="icon"></div>
+      <div class="editable-text" id="icons">
+        <div class="col-sm-12">
+          <hr>
+            <div class="row">
+              <div class="col-sm-3"><%= icon('list-ul') %></div>
+              <div class="col-sm-3"><%= icon('bars') %></div>
+              <div class="col-sm-3"><%= icon('gbp') %></div>
+              <div class="col-sm-3"><%= icon('trophy') %></div>
+              <div class="edit-icon"><%= icon('pencil') %></div>
+            </div>
+        </div>
       </div>
     </div>
 
@@ -44,37 +56,46 @@
 
   <div id="details">
     <div class="row">
-      <div class="col-sm-12">
-        <h4>About this performer</h4>
-        <p>This performer is blah blah blah. They have been playing the banjo for 25 years. Incredible modern banjo sound.</p>
-        <a href="">Contact performer</a>
+      <div class="editable-text" id="about">
+        <div class="col-sm-12">
+          <h4>About this performer</h4>
+            <p>This performer is blah blah blah. They have been playing the banjo for 25 years. Incredible modern banjo sound.</p>
+            <a href="">Contact performer</a>
+            <div class="edit-icon"><%= icon('pencil') %></div>
+        </div>
       </div>
     </div>
 
     <hr>
 
     <div class="row">
-      <div class="col-sm-3">
-        <h4>Details</h4>
-      </div>
-      <div class="col-sm-9">
-        <p>Members: <strong>2</strong></p>
-        <p>Category: <strong>Magician</strong></p>
-        <p>Good for: <strong>Birthdays, Children's Parties</strong></p>
-        <p>Special Requirements: <strong>None</strong></p>
+      <div class="editable-text" id="details-div">
+        <div class="col-sm-3">
+          <h4>Details</h4>
+        </div>
+        <div class="col-sm-9">
+          <p>Members: <strong>2</strong></p>
+          <p>Category: <strong>Magician</strong></p>
+          <p>Good for: <strong>Birthdays, Children's Parties</strong></p>
+          <p>Special Requirements: <strong>None</strong></p>
+        </div>
+        <div class="edit-icon"><%= icon('pencil') %></div>
       </div>
     </div>
 
     <hr>
 
     <div class="row">
-      <div class="col-sm-3">
-        <h4>Prices</h4>
-      </div>
-      <div class="col-sm-9">
-        <p>Rate: <strong>2</strong></p>
-        <p>Weekday Discount: <strong>25%</strong></p>
-        <p>Cancellation: <strong>Flexible</strong></p>
+      <div class="editable-text" id="prices">
+        <div class="col-sm-3">
+          <h4>Prices</h4>
+        </div>
+        <div class="col-sm-9">
+          <p>Rate: <strong>2</strong></p>
+          <p>Weekday Discount: <strong>25%</strong></p>
+          <p>Cancellation: <strong>Flexible</strong></p>
+          <div class="edit-icon"><%= icon('pencil') %></div>
+        </div>
       </div>
     </div>
   </div>
