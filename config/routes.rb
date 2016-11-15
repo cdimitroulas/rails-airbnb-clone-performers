@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'performers/index'
-
-  get 'performers/show'
-
   devise_for :performers
   devise_for :users
   root to: 'pages#home'
