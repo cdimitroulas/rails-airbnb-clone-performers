@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  # Search result page(index) and show page for the performers
-  resources :performers, only: [:index, :show, :edit]
+  # Performers resources (edit and update for editing the profile)
+  resources :performers, only: [:index, :show, :edit, :update]
 
   # Route for user dashboard
   resources :users, only: [:show]
