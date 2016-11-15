@@ -1,1 +1,21 @@
 // Your footer style
+#footer {
+  background-color: #333333;
+  color: #CCCCCC;
+  font-size: 25px;
+  padding: 30px 0;
+}
+
+#footer p {
+  font-size: 15px;
+  margin-top: 12px;
+}
+
+#footer a {
+  text-decoration: none;
+  color: #CCCCCC;
+}
+
+#footer a:hover {
+    color: #756A66;
+  }
