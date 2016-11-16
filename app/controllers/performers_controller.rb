@@ -12,6 +12,12 @@ class PerformersController < ApplicationController
   end
 
   def edit
+    @performer = Performer.find(params[:id])
+    if current_performer.id == params[:id].to_i
+      return
+    else
+      redirect_to performer_path(@performer)
+    end
   end
 
   def update
