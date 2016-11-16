@@ -40,12 +40,34 @@
           </div>
             <input type="submit" value="Search" class="navbar-wagon-item navbar-wagon-button btn">
         </div>
-
     </div>
-    <hr>
   </div>
 </div>
- </form>
+  </form>
+
+<div id="map" style="width: 100%; height: 200px;"></div>
+
+  <% content_for(:after_js) do %>
+    <script>
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        var style = [{"stylers":[{"hue":"#dd0d0d"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]}];
+
+        handler.buildMap({ provider: {styles: style}, internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @markers.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(6);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(13);
+          }
+        });
+      });
+    </script>
+  <% end %>
+
+
 <div class="wrapper" id="search-results">
   <div class="container">
     <div class="row">

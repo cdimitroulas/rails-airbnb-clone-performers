@@ -11,7 +11,12 @@ class Performer < ApplicationRecord
   validates :last_name, presence: true
   validates :phone_number, presence: true
 
-  geocoded_by :postcode
+  geocoded_by :full_address
+
+  def full_address
+    self.city + ", " + self.postcode
+  end
+
   after_validation :geocode, if: :postcode_changed?
   # scope :category, -> (category) { where category: category }
   # # scope :city, -> (city) { where city: city }
