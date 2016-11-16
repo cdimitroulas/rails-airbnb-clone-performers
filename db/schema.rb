@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 20161116135600) do
 
   create_table "performers", force: :cascade do |t|
     t.string   "email"
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "encrypted_password",     default: "",                                                                                                       null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,                                                                                                        null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20161116135600) do
     t.string   "unconfirmed_email"
     t.string   "password"
     t.string   "category"
-    t.text     "event_types",                                      array: true
+    t.text     "event_types",                                                                                                                                            array: true
     t.text     "profile"
     t.string   "travelling_distance"
     t.float    "hourly_rate"
@@ -43,15 +43,15 @@ ActiveRecord::Schema.define(version: 20161116135600) do
     t.string   "phone_number"
     t.string   "picture"
     t.string   "video"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                                                                                                                null: false
+    t.datetime "updated_at",                                                                                                                                null: false
     t.integer  "members"
     t.string   "requirements"
     t.integer  "discount"
     t.string   "cancellation_policy"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "profile_picture"
+    t.string   "profile_picture",        default: "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479313226/Airbnb-clone/iStock_000033523696Small.jpg"
     t.index ["confirmation_token"], name: "index_performers_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_performers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_performers_on_reset_password_token", unique: true, using: :btree
@@ -74,12 +74,12 @@ ActiveRecord::Schema.define(version: 20161116135600) do
     t.string   "last_name"
     t.string   "phone_number"
     t.string   "address"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",                                                                                                       null: false
+    t.string   "encrypted_password",     default: "",                                                                                                       null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,                                                                                                        null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -88,9 +88,9 @@ ActiveRecord::Schema.define(version: 20161116135600) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "profile_picture"
+    t.datetime "created_at",                                                                                                                                null: false
+    t.datetime "updated_at",                                                                                                                                null: false
+    t.string   "profile_picture",        default: "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479313226/Airbnb-clone/iStock_000033523696Small.jpg"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
