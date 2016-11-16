@@ -2,7 +2,7 @@
 @import "show";
 @import "performer_edit";
 
- body.performers.index {
+body.performers.index {
   .wrapper {
       padding-top: 30px;
   };
@@ -16,3 +16,5 @@ body.performers.index {
 label {
   font-weight: 400;
 }
+
+@import "user_dashboard";
