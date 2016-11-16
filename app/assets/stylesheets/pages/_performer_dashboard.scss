@@ -1,0 +1,45 @@
+.dashboard {
+  padding-bottom: 50px;
+}
+
+.profile-link {
+  padding-top: 20px;
+}
+
+.headtitle-profile {
+  background-color: #EDEFED;
+  color: #756A66;
+  padding: 10px;
+}
+
+.profile-bookings {
+  margin-top: 20px;
+}
+
+.messages {
+  margin-top: 20px;
+  border: 1px solid #EDEFED;
+}
+
+
+.tables-row {
+  padding: 10px;
+  border: 1px solid #EDEFED;
+}
+
+
+.previous-bookings {
+  background-color: #EDEFED;
+  color: white;
+  padding: 10px;
+
+  a {
+  text-decoration: none;
+  color: #756A66;
+  }
+
+  a:hover {
+  color: #756A66;
+  color: white;
+  }
+}

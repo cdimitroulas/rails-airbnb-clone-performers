@@ -1,5 +1,111 @@
-<div class="container">
-<h1>Welcome to your dashboard <%= current_performer.first_name %></h1>
+<div class="container dashboard">
+  <h1>Welcome to your dashboard <%= current_performer.first_name %></h1>
+    <div class="row">
+      <div class="profile-update text-center col-md-3">
+      <br>
+        <img src="http://placehold.it/200x200" class="avatar-square">
+        <div class="profile-link">
+          <p><%= link_to "Edit your profile", edit_performer_path(current_performer) %></p>
+        </div>
+      </div>
 
-<%= link_to "Edit your profile", edit_performer_path(current_performer) %>
-</div>
+      <div class="col-md-9">
+        <div class="messages">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="headtitle-profile">Your messages (0 new)</div>
+                <div class="tables-row">
+                  <div class="row">
+                    <div class="col-md-1">
+                        <img src="http://placehold.it/100x100" class="avatar">
+                    </div>
+                    <div class="col-md-3">
+                      <p> user.name </p>
+                      <p> DATE </p>
+                    </div>
+                    <div class="col-md-8">
+                      <p> message </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="tables-row">
+                  <div class="row">
+                    <div class="col-md-1">
+                      <img src="http://placehold.it/100x100" class="avatar">
+                    </div>
+                  <div class="col-md-3">
+                    <p> user.name </p>
+                    <p> DATE </p>
+                  </div>
+                  <div class="col-md-8">
+                    <p> message </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <br>
+
+        <div class="bookings">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="headtitle-profile">Your next performances</div>
+                <div class="tables-row">
+                  <div class="row">
+                    <div class="col-md-1">
+                      <img src="http://placehold.it/100x100" class="avatar">
+                    </div>
+                    <div class="col-md-2">
+                      <p> DATE </p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>STARTING TIME</p>
+                      <p>ENDING TIME</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>LOCATION</p>
+                    </div>
+                    <div class="col-md-3">
+                      <p>USER NAME</p>
+                    </div>
+                    <div class="col-md-3">
+                      <p>DESCRIPTION</p>
+                    </div>
+                  </div>
+                </div>
+                   <div class="tables-row">
+                  <div class="row">
+                    <div class="col-md-1">
+                      <img src="http://placehold.it/100x100" class="avatar">
+                    </div>
+                    <div class="col-md-2">
+                      <p> DATE </p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>STARTING TIME</p>
+                      <p>ENDING TIME</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>LOCATION</p>
+                    </div>
+                    <div class="col-md-3">
+                      <p>USER NAME</p>
+                    </div>
+                    <div class="col-md-3">
+                      <p>DESCRIPTION</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="previous-bookings"><%= link_to 'Past performances'%></div>
+
+      </div>
+    </div>
+  </div>
+
+
