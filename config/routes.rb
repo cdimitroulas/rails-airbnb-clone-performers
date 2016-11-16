@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  # Performers resources (edit and update for editing the profile)
-  resources :performers, only: [:index, :show, :edit, :update]
+  # Performers resources
+  resources :performers, only: [:index, :show, :edit]
+  patch '/performers/:id/edit', to: 'performers#update'
+  put '/performers/:id/edit', to: 'performers#update'
 
   # Route for user dashboard
   resources :users, only: [:show]

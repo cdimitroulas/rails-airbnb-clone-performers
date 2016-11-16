@@ -14,10 +14,21 @@ class PerformersController < ApplicationController
   def edit
   end
 
+  def update
+    @performer = Performer.update(performer_params)
+    redirect_to edit_performer_path(current_performer)
+  end
+
   def dashboard
   end
 
   private
+
+  def performer_params
+    params.require(:performer).permit(:first_name, :last_name, :city, :description,
+                                      :members, :category, :event_types, :requirements,
+                                      :hourly_rate, :discount, :cancellation)
+  end
 
   # A list of the param names that can be used for filtering the Product list
   def filtering_params(params)
