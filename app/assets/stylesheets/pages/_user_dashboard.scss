@@ -1,17 +1,15 @@
 .dashboard {
-  background-color: white;
   padding-bottom: 50px;
-}
-
-.headtitle-profile {
-  background-color: #333333;
-  color: white;
-  padding: 5px;
-  border: 1px solid #333333;
 }
 
 .profile-link {
   padding-top: 20px;
+}
+
+.headtitle-profile {
+  background-color: #EDEFED;
+  color: #756A66;
+  padding: 10px;
 }
 
 .profile-bookings {
@@ -20,23 +18,28 @@
 
 .messages {
   margin-top: 20px;
-  border: 1px  solid #333333;
-}
-
-.messages-details {
-  padding: 5px;
-}
-
-.bookings {
-  border: 1px  solid #333333;
-}
-
-.bookings-details {
-  padding: 5px;
-}
-
-.last-booking {
-  padding: 5px;
+  border: 1px solid #EDEFED;
 }
 
 
+.tables-row {
+  padding: 10px;
+  border: 1px solid #EDEFED;
+}
+
+
+.previous-bookings {
+  background-color: #EDEFED;
+  color: white;
+  padding: 10px;
+
+  a {
+  text-decoration: none;
+  color: #756A66;
+  }
+
+  a:hover {
+  color: #756A66;
+  color: white;
+  }
+}
