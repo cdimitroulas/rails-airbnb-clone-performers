@@ -6,12 +6,10 @@ pictures = ["http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209534/Airbnb
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479208813/Airbnb-clone/gettyimages_117087793_wide-4f9cc3824e22a75519017d35ddf5fb2e54e672f1-s900-c85.jpg"]
 categories = ["Rock", "Pop", "DJ", "Entertainers"]
 
-20.times do
-  Performer.create(email: Faker::Internet.email, password: Devise.friendly_token[0,20],
-                 first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
-                 phone_number: Faker::PhoneNumber.cell_phone , city: Faker::Address.city,
-                 picture: pictures.sample, category: categories.sample)
-end
+postcode_array = ['E10 5HR', 'E6 2LA', 'CM15 0BH', 'CM5 9BG', 'CM9 8QJ', 'CM3 6PA',
+  'SW19 8NG', 'SW18 1GQ', 'SW6 3DP', 'SW9 7RY', 'RH14 9EP', 'RH2 7NX', 'RH16 3PH',
+  'WC1N 1NN', 'WC2N 6HY', 'WC1H 0PJ', 'S70 5JS', 'S43 2AT', 'S42 6BX', 'S8 9JF',
+  'S2 3HB', 'WF14 8RA', 'WF3 3TQ', 'WF9 5JT']
 
 address_array = ['3 The Square High Road London E10 5HR',
 '36 Streatfeild Ave London E6 2LA',
@@ -40,6 +38,14 @@ address_array = ['3 The Square High Road London E10 5HR',
 '44 Chadwick Ln Mirfield WF14 8RA',
 '7 St Davids Cl Robin Hood Wakefield WF3 3TQ',
 '16 W Moor Rd Kinsley Pontefract WF9 5JT']
+
+20.times do
+  Performer.create(email: Faker::Internet.email, password: Devise.friendly_token[0,20],
+                 first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+                 phone_number: Faker::PhoneNumber.cell_phone , city: Faker::Address.city,
+                 postcode: postcode_array[rand(0..postcode_array.length)],
+                 picture: pictures.sample, category: categories.sample)
+end
 
 20.times do
   User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
@@ -83,7 +89,4 @@ Performer.all.each do |performer|
   end
 end
 
-postcode_array = ['E10 5HR', 'E6 2LA', 'CM15 0BH', 'CM5 9BG', 'CM9 8QJ', 'CM3 6PA',
-  'SW19 8NG', 'SW18 1GQ', 'SW6 3DP', 'SW9 7RY', 'RH14 9EP', 'RH2 7NX', 'RH16 3PH',
-  'WC1N 1NN', 'WC2N 6HY', 'WC1H 0PJ', 'S70 5JS', 'S43 2AT', 'S42 6BX', 'S8 9JF',
-  'S2 3HB', 'WF14 8RA', 'WF3 3TQ', 'WF9 5JT']
+
