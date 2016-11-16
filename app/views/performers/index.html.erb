@@ -1,8 +1,7 @@
-
+<form action="/performers" method="/get">
 <div class="wrapper-grey">
   <div class="container text-center">
     <div class="filters">
-      <form action="/performers" method="/get">
         <div class="row">
 
           <div class="col-xs-6 col-md-3 form-group">
@@ -32,14 +31,21 @@
         <div class="form-search form-inline">
           <input value="<%= params[:time_in] %>" type="hidden" name="time_in" class="form-control">
           <input value="<%= params[:time_out] %>" type="hidden" name="time_out" class="form-control">
-          <input value="<%= params[:min_price] %>" type="min-price" placeholder="Minimum Price" class="form-control" name="min_price">
-          <input value="<%= params[:max_price] %>" type="max-price" placeholder="Maximum Price" class="form-control" name="max_price">
-          <input type="submit" value="Search" class="navbar-wagon-item navbar-wagon-button btn">
+          <div class="input-group">
+            <span class="input-group-addon ">£</span>
+            <input value="<%= params[:min_price] %>" type="min-price" placeholder="Minimum Price" class="form-control" name="min_price">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">£</span>
+            <input value="<%= params[:max_price] %>" type="max-price" placeholder="Maximum Price" class="form-control" name="max_price">
+          </div>
+            <input type="submit" value="Search" class="navbar-wagon-item navbar-wagon-button btn">
         </div>
-      </form>
+
     </div>
   </div>
 </div>
+ </form>
 
 <div class="wrapper-grey">
   <div class="container">
