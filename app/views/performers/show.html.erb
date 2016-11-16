@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-lg-8 col-sm-8">
         <div class="summary-component">
-          <h2><%= @performer.first_name + @performer.last_name %></h2>
+          <h2><%= @performer.first_name + ' ' + @performer.last_name %></h2>
           <h5><%= @performer.city %></h5>
         </div>
       </div>
@@ -23,19 +23,19 @@
     <div class="row text-center">
       <div class="col-sm-12">
         <hr>
-        <div class="col-sm-3"><img src="" alt="tent icon"></div>
-        <div class="col-sm-3"><img src="" alt="microphone icon"></div>
-        <div class="col-sm-3"><img src="" alt="pound icon"></div>
-        <div class="col-sm-3"><img src="" alt="icon"></div>
+        <div class="col-sm-3"><i class="fa fa-microphone big-icon" aria-hidden="true"></i></div>
+        <div class="col-sm-3"><i class="fa fa-thumbs-o-up big-icon" aria-hidden="true"></i></div>
+        <div class="col-sm-3"><i class="fa fa-money big-icon" aria-hidden="true"></i></div>
+        <div class="col-sm-3"><i class="fa fa-line-chart big-icon" aria-hidden="true"></i></div>
       </div>
     </div>
 
     <div class="row text-center">
       <div class="col-sm-12">
-        <div class="col-sm-3">Type</div>
-        <div class="col-sm-3">Category</div>
-        <div class="col-sm-3">Rate(£ or ££ etc)</div>
-        <div class="col-sm-3">Rating(Well rated?)</div>
+        <div class="col-sm-3"><%= @performer.category %></div>
+        <div class="col-sm-3">Good for Parties</div>
+        <div class="col-sm-3">£ <%= @performer.hourly_rate %> /hour</div>
+        <div class="col-sm-3"><%= (average_rating(@performer)*2)  %>/10 Rating</div>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@
       <div class="col-sm-12">
         <h4>About this performer</h4>
         <p><%= @performer.profile %></p>
-        <a href="">Contact performer</a>
+        <a href="">Book performer</a>
       </div>
     </div>
 
@@ -58,9 +58,9 @@
         <h4>Details</h4>
       </div>
       <div class="col-sm-9">
-          <p>Members: <strong><%= @performer.members %></strong></p>
-          <p>Category: <strong><%= @performer.category %></strong></p>
-          <p>Good for: <strong>@performer.good_for</strong></p>
+          <p>Members: <strong><%= @performer.members ? @performer.members : '1' %></strong></p>
+          <p>Category: <strong><%= @performer.category ? @performer.category : 'Mixed' %></strong></p>
+          <p>Good for: <strong>Parties</strong></p>
           <p>Special Requirements: <strong><%= @performer.requirements ? @performer.requirements : 'None' %></strong></p>
       </div>
     </div>
@@ -72,9 +72,9 @@
         <h4>Prices</h4>
       </div>
       <div class="col-sm-9">
-        <p>Rate: <strong><%= @performer.hourly_rate %></strong></p>
-        <p>Weekday Discount: <strong><%= @performer.discount %>%</strong></p>
-        <p>Cancellation: <strong><%= @performer.cancellation_policy %></strong></p>
+        <p>Rate: <strong><%= @performer.hourly_rate ? @performer.hourly_rate : 'Tbc' %></strong></p>
+        <p>Weekday Discount: <strong><%= @performer.discount ? @performer.discount : '25' %>%</strong></p>
+        <p>Cancellation: <strong><%= @performer.cancellation_policy ? @performer.cancellation : 'Flexible' %></strong></p>
       </div>
     </div>
   </div>
@@ -84,21 +84,28 @@
   <div id="reviews">
     <div class="row">
       <div class="col-sm-12">
-        <h4><%= @performer.reviews.count %> Reviews <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden= "true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></h4>
+        <h4><%= @performer.reviews.count %> Reviews
+        <% average_rating(@performer).times do %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end %>
+          <% (5 - average_rating(@performer)).times do %>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+          <% end %>
       </div>
     </div>
 
     <br>
 
-    <div class="row">
-      <% @performer.reviews.each do |review| %>
-        <div class="col-xs-12">
-          <%= review.user.first_name %>
-          <%= review.title %>
-          <%= review.description %>
+    <% @performer.reviews.each do |review| %>
+      <div class="row">
+        <div class="col-sm-3">
+          <h4><%= review.user.first_name + ' ' + review.user.last_name %></h4>
         </div>
-      <% end %>
-    </div>
+        <div class="col-sm-9">
+            <p><%= review.description %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
 
     <hr>
