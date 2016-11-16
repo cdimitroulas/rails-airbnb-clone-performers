@@ -1,4 +1,3 @@
-<!-- <form class="form-inline"> -->
 <%= simple_form_for current_performer do |f| %>
 
 <div class="edit-banner show-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path(current_performer.picture) %>)
@@ -21,9 +20,9 @@
 
           <div class="hidden form-div">
             <%= f.input :first_name, label: false %>
-            <!-- <input type="text" name="performer[first_name]" value="<%= current_performer.first_name %>" class="form-control"> -->
+
             <%= f.input :last_name, label: false %>
-            <!-- <input type="text" name="performer[last_name]" value="<%= current_performer.last_name %>" class="form-control"> -->
+
             </div>
 
           <div class="editable-text">
@@ -33,7 +32,6 @@
 
           <div class="hidden form-div">
             <%= f.input :city, label: false %>
-            <!-- <input type="text" name="city" value="<%= current_performer.city %>" class="form-control"> -->
           </div>
         </div>
       </div>
@@ -62,11 +60,8 @@
           <hr>
           <div class="form-div" id="icons-form">
             <%= f.input :event_types, label: false %>
-            <!-- <input type="text" name="performer[event_types]" value="<%= current_performer.event_types %>" class="form-control"> -->
             <%= f.input :category, label: false %>
-            <!-- <input type="text" name="performer[category]" value="<%= current_performer.category %>" class="form-control"> -->
             <%= f.input :hourly_rate, label: false %>
-            <!-- <input type="text" name="performer[hourly_rate]" value="<%= current_performer.hourly_rate %>" class="form-control"> -->
             <div class="col-sm-3" id="label-and-icon"><%= icon('trophy') %>Rating(Well rated?)</div>
           </div>
         </div>
@@ -123,31 +118,15 @@
         <div class="col-sm-9">
           <div class="row">
             <%= f.input :members %>
-            <!-- <div class="form-group">
-            <label>Members:</label>
-            <input type="text" name="performer[members]" value="<%= current_performer.members %>" class="form-control">
-            </div> -->
           </div>
           <div class="row">
             <%= f.input :category %>
-            <!-- <div class="form-group">
-              <label>Category:</label>
-              <input type="text" name="performer[category]" value="<%= current_performer.category %>" class="form-control">
-            </div> -->
           </div>
           <div class="row">
             <%= f.input :event_types %>
-            <!-- <div class="form-group">
-              <label>Good For:</label>
-              <input type="text" name="performer[event_types]" class="form-control">
-            </div> -->
           </div>
           <div class="row">
             <%= f.input :requirements %>
-            <!-- <div class="form-group">
-              <label>Special Requirements:</label>
-              <input type="text" name="performer[requirements]" value="<%= current_performer.requirements %>"  class="form-control">
-            </div> -->
           </div>
         </div>
     </div>
@@ -173,24 +152,12 @@
       <div class="col-sm-9">
         <div class="row">
           <%= f.input :hourly_rate %>
-          <!-- <div class="form-group">
-            <label>Rate:</label>
-            <input type="text" name="hourly_rate" class="form-control" value="<%= current_performer.hourly_rate %>">
-          </div> -->
         </div>
         <div class="row">
           <%= f.input :discount %>
-          <!-- <div class="form-group">
-            <label>Weekday Discount:</label>
-            <input type="text" name="discount" class="form-control" value="<%= current_performer.discount if current_performer.discount %>">
-          </div> -->
         </div>
         <div class="row">
           <%= f.input :cancellation_policy %>
-<!--           <div class="form-group">
-            <label>Cancellation:</label>
-            <input type="text" name="discount" class="form-control" value="<%= current_performer.cancellation_policy if current_performer.cancellation_policy %>">
-          </div> -->
         </div>
       </div>
     </div>
