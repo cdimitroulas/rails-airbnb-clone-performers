@@ -49,7 +49,11 @@
       <div class="editable-text" id="icons">
         <div class="col-sm-12">
           <hr>
-              <div class="col-sm-3" id="label-and-icon"><%= icon('list-ul') %><%= current_performer.event_types %></div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('list-ul') %>
+                <% current_performer.event_types.each do |event| %>
+                  <%= event + " | " %>
+                <% end %>
+              </div>
               <div class="col-sm-3" id="label-and-icon"><%= icon('bars') %><%= current_performer.category %></div>
               <div class="col-sm-3" id="label-and-icon"><%= icon('gbp') %><%= current_performer.hourly_rate.to_s + "/hour" %></div>
               <div class="col-sm-3" id="label-and-icon"><%= icon('trophy') %>Rating(Well rated?)</div>
@@ -107,7 +111,7 @@
             </li>
           <% end %>
           </ul>
-          <% unless current_performer.requirements.empty? %>
+          <% unless current_performer.requirements.blank? %>
             <p>Special Requirements: <strong><%= current_performer.requirements %></strong></p>
           <% end %>
       </div>
