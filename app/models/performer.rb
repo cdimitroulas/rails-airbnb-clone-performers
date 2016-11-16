@@ -11,8 +11,10 @@ class Performer < ApplicationRecord
   validates :last_name, presence: true
   validates :phone_number, presence: true
 
-  scope :category, -> (category) { where category: category }
-  scope :city, -> (city) { where city: city }
+  geocoded_by :postcode
+  after_validation :geocode, if: :postcode_changed?
+  # scope :category, -> (category) { where category: category }
+  # # scope :city, -> (city) { where city: city }
   # scope :location, -> (location_id) { where location_id: location_id }
   # scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
 end

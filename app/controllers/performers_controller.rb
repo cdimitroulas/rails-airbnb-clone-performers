@@ -1,10 +1,15 @@
 class PerformersController < ApplicationController
   def index
-    @performers = Performer.where(nil)
-    filtering_params(params).each do |key, value|
-      @performers = @performers.public_send(key, value) if value.present?
+    @performers = Performer.where.not(latitude: nil, longitude: nil)
+    if params[:postcode].present?
+      @performers = @performers.near(params[:postcode], 50)
     end
-    # event_type, category, start_time, end_time, city
+    if params[:category].present?
+      @performers = @performers.where(category: params[:category])
+    end
+    if params[:event_types].present?
+      @performers = @performers.where(event_types: params[:event_types])
+    end
   end
 
   def show
@@ -36,10 +41,6 @@ class PerformersController < ApplicationController
                                       :hourly_rate, :discount, :cancellation)
   end
 
-  # A list of the param names that can be used for filtering the Product list
-  def filtering_params(params)
-    params.slice(:category, :city)
-  end
 end
 
 
