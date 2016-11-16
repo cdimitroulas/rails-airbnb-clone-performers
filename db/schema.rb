@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20161116135600) do
     t.string   "city"
     t.string   "postcode"
     t.string   "phone_number"
-    t.string   "picture"
+    t.string   "picture",                default: "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479315452/Airbnb-clone/background_image.jpg"
     t.string   "video"
     t.datetime "created_at",                                                                                                                                null: false
     t.datetime "updated_at",                                                                                                                                null: false

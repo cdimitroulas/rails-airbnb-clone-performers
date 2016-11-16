@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :performers
   devise_for :users
+  devise_for :performers
   root to: 'pages#home'
 
   # Performers resources
