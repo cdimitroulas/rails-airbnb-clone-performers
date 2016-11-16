@@ -121,3 +121,7 @@
   <br><br><br>
 
 </div>
+
+<% content_for(:title) do %>
+  <%= 'Showcase - ' + @performer.first_name + ' ' + @performer.last_name  %>
+<% end %>
