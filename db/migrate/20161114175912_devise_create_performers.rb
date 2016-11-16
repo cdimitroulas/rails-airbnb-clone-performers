@@ -42,7 +42,7 @@ class DeviseCreatePerformers < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :postcode
       t.string :phone_number
-      t.string :picture
+      t.string :picture, default: 'http://res.cloudinary.com/dplnt2ozo/image/upload/v1479315452/Airbnb-clone/background_image.jpg'
       t.string :video
 
       t.timestamps null: false

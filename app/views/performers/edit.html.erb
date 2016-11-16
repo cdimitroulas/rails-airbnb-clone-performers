@@ -82,8 +82,8 @@
         <div class="col-sm-12 hidden">
           <div class="form-div">
             <h4>About this performer</h4>
-            <%#= f.input :description, as: :text, id: "description-textarea" %>
-            <textarea name="description" class="form-control" id="description-textarea">some description </textarea><br>
+            <%= f.input :profile, as: :text, id: "description-textarea" %>
+            <!-- <textarea name="description" class="form-control" id="description-textarea">some description </textarea><br> -->
             <a href="">Contact <%= current_performer.first_name %></a>
           </div>
         </div>
@@ -97,7 +97,7 @@
         <h4>Details</h4>
       </div>
       <div class="col-sm-9">
-        <p>Members: <strong>2</strong></p>
+        <p>Members: <strong>1</strong></p>
         <p>Category: <strong><%= current_performer.category %></strong></p>
         <p id="event-types">Good for:</p>
           <ul class="list-inline list-event-types">
@@ -107,7 +107,9 @@
             </li>
           <% end %>
           </ul>
-        <p>Special Requirements: <strong><%= current_performer.requirements %></strong></p>
+          <% unless current_performer.requirements.empty? %>
+            <p>Special Requirements: <strong><%= current_performer.requirements %></strong></p>
+          <% end %>
       </div>
       <div class="edit-icon"><%= icon('pencil') %></div>
     </div>
@@ -116,18 +118,26 @@
           <h4>Details</h4>
         </div>
         <div class="col-sm-9">
-          <div class="row">
-            <%= f.input :members %>
-          </div>
+        <% unless current_performer.members.blank? %>
+            <div class="row">
+              <%= f.input :members %>
+            </div>
+        <% end %>
+        <% unless current_performer.category.blank? %>
           <div class="row">
             <%= f.input :category %>
           </div>
+        <% end %>
+        <% unless current_performer.event_types.blank? %>
           <div class="row">
             <%= f.input :event_types %>
           </div>
+        <% end %>
+        <% unless current_performer.requirements.blank? %>
           <div class="row">
             <%= f.input :requirements %>
           </div>
+        <% end %>
         </div>
     </div>
 
@@ -150,15 +160,21 @@
         <h4>Prices</h4>
       </div>
       <div class="col-sm-9">
-        <div class="row">
-          <%= f.input :hourly_rate %>
-        </div>
-        <div class="row">
-          <%= f.input :discount %>
-        </div>
-        <div class="row">
-          <%= f.input :cancellation_policy %>
-        </div>
+        <% unless current_performer.hourly_rate.blank?  %>
+          <div class="row">
+            <%= f.input :hourly_rate %>
+          </div>
+        <% end %>
+        <% unless current_performer.discount.blank? %>
+          <div class="row">
+            <%= f.input :discount %>
+          </div>
+        <% end %>
+        <% unless current_performer.cancellation_policy.blank? %>
+          <div class="row">
+            <%= f.input :cancellation_policy %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
