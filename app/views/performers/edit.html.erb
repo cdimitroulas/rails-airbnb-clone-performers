@@ -23,7 +23,7 @@
 
             <%= f.input :last_name, label: false %>
 
-            </div>
+          </div>
 
           <div class="editable-text">
             <h5><%= current_performer.city %></h5>
@@ -63,7 +63,11 @@
         <div class="col-sm-12 hidden">
           <hr>
           <div class="form-div" id="icons-form">
-            <%= f.input :event_types, label: false %>
+            <div class="col-sm-3" id="label-and-icon"><%= icon('list-ul') %>
+                <% current_performer.event_types.each do |event| %>
+                  <%= event + " | " %>
+                <% end %>
+              </div>
             <%= f.input :category, label: false %>
             <%= f.input :hourly_rate, label: false %>
             <div class="col-sm-3" id="label-and-icon"><%= icon('trophy') %>Rating(Well rated?)</div>
@@ -134,7 +138,9 @@
         <% end %>
         <% unless current_performer.event_types.blank? %>
           <div class="row">
-            <%= f.input :event_types %>
+            <div class="form-inline text-center">
+          <%= f.input :event_types, as: :check_boxes, collection: ["Wedding", "Corporate Event", "Private Party", "Charity Event"], include__blank: false %>
+        </div>
           </div>
         <% end %>
         <% unless current_performer.requirements.blank? %>
@@ -229,5 +235,6 @@
 
   <br><br><br>
 
+</div>
 </div>
 
