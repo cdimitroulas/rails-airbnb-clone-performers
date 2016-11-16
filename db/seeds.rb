@@ -44,7 +44,14 @@ address_array = ['3 The Square High Road London E10 5HR',
                  first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
                  phone_number: Faker::PhoneNumber.cell_phone , city: Faker::Address.city,
                  postcode: postcode_array[rand(0..postcode_array.length)],
-                 picture: pictures.sample, category: categories.sample, hourly_rate: rand(10..50))
+                 picture: pictures.sample, category: categories.sample, hourly_rate: rand(10..50),
+                 profile: "Why do you build me up (build me up) Buttercup, baby
+                          Just to let me down (let me down) and mess me around
+                          And then worst of all (worst of all) you never call, baby
+                          When you say you will (say you will) but I love you still
+                          I need you (I need you) more than anyone, darlin
+                          You know that I have from the start
+                          So build me up (build me up) Buttercup, don't break my heart")
 end
 
 20.times do
