@@ -3,6 +3,13 @@
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
 }
+.profile-image{
+  margin-top: 15px;
+  padding: 10px 0;
+}
+.editable-text > img {
+  margin: 0 10px;
+}
 .avatar-large {
   width: 65px;
   height: 65px;
