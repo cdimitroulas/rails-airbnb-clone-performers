@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 20161116114220) do
   end
 
   create_table "reviews", force: :cascade do |t|
-
     t.integer  "rating"
     t.string   "title"
     t.text     "description"
