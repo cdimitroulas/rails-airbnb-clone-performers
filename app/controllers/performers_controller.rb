@@ -10,6 +10,11 @@ class PerformersController < ApplicationController
     if params[:event_types].present?
       @performers = @performers.where(event_types: params[:event_types])
     end
+
+    @markers = Gmaps4rails.build_markers(@performers) do |performer, marker|
+      marker.lat performer.latitude
+      marker.lng performer.longitude
+    end
   end
 
   def show
