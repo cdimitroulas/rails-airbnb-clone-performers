@@ -15,9 +15,13 @@
 
     <!-- Notices and Alerts -->
     <% if notice %>
-      <p class="notice"><%= notice %></p>
+      <div class="alert alert-info alert-dismissible" role="alert">
+        <span class="notice"><%= notice %></span>
+      </div>
     <% elsif alert %>
-      <p class="alert"><%= alert %></p>
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <p class="alert"><%= alert %></p>
+      </div>
     <% end %>
 
     <!-- Main Page -->
