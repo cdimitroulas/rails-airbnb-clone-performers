@@ -1,20 +1,5 @@
 @import "home";
 @import "show";
 @import "performer_edit";
-
-body.performers.index {
-  .wrapper {
-      padding-top: 30px;
-  };
-}
-
-body.performers.index {
-  #search-results {
-      margin-bottom: 50px;
-  };
-}
-label {
-  font-weight: 400;
-}
-
 @import "user_dashboard";
+@import "search_results";
