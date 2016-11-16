@@ -3,7 +3,7 @@
     <div class="row">
       <div class="profile-update text-center col-md-3">
       <br>
-        <img src="http://placehold.it/200x200" class="avatar-square">
+        <img src="<%= current_performer.profile_picture %>" class="avatar-square">
         <div class="profile-link">
           <p><%= link_to "Edit your profile", edit_performer_path(current_performer) %></p>
         </div>
@@ -17,7 +17,7 @@
                 <div class="tables-row">
                   <div class="row">
                     <div class="col-md-1">
-                        <img src="<%= current_performer.profile_picture" class="avatar">
+                        <img src="http://placehold.it/100x100" class="avatar">
                     </div>
                     <div class="col-md-3">
                       <p> user.name </p>
