@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-lg-8 col-sm-8">
         <div class="summary-component">
-          <h2><%= @performer.first_name + @performer.last_name %></h2>
+          <h2><%= @performer.first_name + ' ' + @performer.last_name %></h2>
           <h5><%= @performer.city %></h5>
         </div>
       </div>
@@ -84,21 +84,28 @@
   <div id="reviews">
     <div class="row">
       <div class="col-sm-12">
-        <h4><%= @performer.reviews.count %> Reviews <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden= "true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></h4>
+        <h4><%= @performer.reviews.count %> Reviews
+        <% average_rating(@performer).times do %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end %>
+          <% (5 - average_rating(@performer)).times do %>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+          <% end %>
       </div>
     </div>
 
     <br>
 
-    <div class="row">
-      <% @performer.reviews.each do |review| %>
-        <div class="col-xs-12">
-          <%= review.user.first_name %>
-          <%= review.title %>
-          <%= review.description %>
+    <% @performer.reviews.each do |review| %>
+      <div class="row">
+        <div class="col-sm-3">
+          <h4><%= review.user.first_name + ' ' + review.user.last_name %></h4>
         </div>
-      <% end %>
-    </div>
+        <div class="col-sm-9">
+            <p><%= review.description %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
 
     <hr>
