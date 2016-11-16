@@ -5,7 +5,6 @@
       <h3><%= performer.first_name %></h3>
         <p><%= performer.category %></p>
     </div>
-  <!-- <img src="http://placehold.it/100x100" class="card-avatar"> -->
   <%= image_tag(performer.profile_picture, class: "card-avatar") %>
 </div>
 <% if performer.hourly_rate && performer.reviews %>
