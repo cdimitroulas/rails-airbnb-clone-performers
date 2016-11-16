@@ -1,5 +1,5 @@
 <form action="/performers" method="/get">
-<div class="wrapper-grey">
+<div class="wrapper">
   <div class="container text-center">
     <div class="filters">
         <div class="row">
@@ -24,8 +24,7 @@
     </div>
   </div>
 </div>
-
-<div class="wrapper-grey">
+<div class="wrapper">
   <div class="container text-center">
     <div class="row">
         <div class="form-search form-inline">
@@ -43,11 +42,11 @@
         </div>
 
     </div>
+    <hr>
   </div>
 </div>
  </form>
-
-<div class="wrapper-grey">
+<div class="wrapper" id="search-results">
   <div class="container">
     <div class="row">
       <% @performers.each do |performer| %>

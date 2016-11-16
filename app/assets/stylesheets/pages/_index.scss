@@ -2,11 +2,16 @@
 @import "show";
 
  body.performers.index {
-  .container {
-      padding: 25px 0;
+  .wrapper {
+      padding-top: 30px;
   };
 }
 
+body.performers.index {
+  #search-results {
+      margin-bottom: 50px;
+  };
+}
 label {
   font-weight: 400;
 }
