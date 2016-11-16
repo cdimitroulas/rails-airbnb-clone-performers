@@ -1,3 +1,5 @@
 <div class="container">
 <h1>Welcome to your dashboard <%= current_performer.first_name %></h1>
+
+<%= link_to "Edit your profile", edit_performer_path(current_performer) %>
 </div>

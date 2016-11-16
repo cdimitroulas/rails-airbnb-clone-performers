@@ -1,0 +1,213 @@
+<%= simple_form_for current_performer do |f| %>
+
+<div class="edit-banner show-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path(current_performer.picture) %>)
+;">
+  <div class="edit-icon"><%= icon('pencil') %></div>
+</div>
+
+<br>
+
+<div class="container">
+
+  <div id="summary">
+    <div class="row">
+      <div class="col-lg-8 col-sm-8">
+        <div class="summary-component">
+          <div class="editable-text">
+            <h2><%= current_performer.first_name + ' ' + current_performer.last_name %></h2>
+            <div class="edit-icon"><%= icon('pencil') %></div>
+          </div>
+
+          <div class="hidden form-div">
+            <%= f.input :first_name, label: false %>
+
+            <%= f.input :last_name, label: false %>
+
+            </div>
+
+          <div class="editable-text">
+            <h5><%= current_performer.city %></h5>
+            <div class="edit-icon"><%= icon('pencil') %></div>
+          </div>
+
+          <div class="hidden form-div">
+            <%= f.input :city, label: false %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 text-center hide-sm">
+        <div class="profile-image">
+          <div class="editable-text profile-picture">
+            <img src="" alt="profile-picture" class="avatar-large">
+             <div class="edit-icon"><%= icon('pencil') %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="editable-text" id="icons">
+        <div class="col-sm-12">
+          <hr>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('list-ul') %><%= current_performer.event_types %></div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('bars') %><%= current_performer.category %></div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('gbp') %><%= current_performer.hourly_rate.to_s + "/hour" %></div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('trophy') %>Rating(Well rated?)</div>
+              <div class="edit-icon" id="label-and-icon"><%= icon('pencil') %></div>
+        </div>
+
+        <div class="col-sm-12 hidden">
+          <hr>
+          <div class="form-div" id="icons-form">
+            <%= f.input :event_types, label: false %>
+            <%= f.input :category, label: false %>
+            <%= f.input :hourly_rate, label: false %>
+            <div class="col-sm-3" id="label-and-icon"><%= icon('trophy') %>Rating(Well rated?)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <hr>
+
+  <div id="details">
+    <div class="row">
+      <div class="editable-text" id="about">
+        <div class="col-sm-12">
+          <h4>About this performer</h4>
+            <p>This performer is blah blah blah. They have been playing the banjo for 25 years. Incredible modern banjo sound.</p>
+            <a href="">Contact <%= current_performer.first_name %></a>
+            <div class="edit-icon"><%= icon('pencil') %></div>
+        </div>
+        <div class="col-sm-12 hidden">
+          <div class="form-div">
+            <h4>About this performer</h4>
+            <%#= f.input :description, as: :text, id: "description-textarea" %>
+            <textarea name="description" class="form-control" id="description-textarea">some description </textarea><br>
+            <a href="">Contact <%= current_performer.first_name %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row editable-text" id="details-div">
+      <div class="col-sm-3">
+        <h4>Details</h4>
+      </div>
+      <div class="col-sm-9">
+        <p>Members: <strong>2</strong></p>
+        <p>Category: <strong><%= current_performer.category %></strong></p>
+        <p id="event-types">Good for:</p>
+          <ul class="list-inline list-event-types">
+            <% current_performer.event_types.each do |event| %>
+            <li>
+              <strong><%= event %></strong>
+            </li>
+          <% end %>
+          </ul>
+        <p>Special Requirements: <strong><%= current_performer.requirements %></strong></p>
+      </div>
+      <div class="edit-icon"><%= icon('pencil') %></div>
+    </div>
+    <div class="row form-div hidden">
+        <div class="col-sm-3">
+          <h4>Details</h4>
+        </div>
+        <div class="col-sm-9">
+          <div class="row">
+            <%= f.input :members %>
+          </div>
+          <div class="row">
+            <%= f.input :category %>
+          </div>
+          <div class="row">
+            <%= f.input :event_types %>
+          </div>
+          <div class="row">
+            <%= f.input :requirements %>
+          </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row editable-text">
+      <div class="col-sm-3">
+        <h4>Prices</h4>
+      </div>
+      <div class="col-sm-9">
+        <p>Rate: <strong>2</strong></p>
+        <p>Weekday Discount: <strong>25%</strong></p>
+        <p>Cancellation: <strong>Flexible</strong></p>
+      </div>
+      <div class="edit-icon"><%= icon('pencil') %></div>
+    </div>
+
+    <div class="row hidden" id="prices">
+      <div class="col-sm-3">
+        <h4>Prices</h4>
+      </div>
+      <div class="col-sm-9">
+        <div class="row">
+          <%= f.input :hourly_rate %>
+        </div>
+        <div class="row">
+          <%= f.input :discount %>
+        </div>
+        <div class="row">
+          <%= f.input :cancellation_policy %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="text-center">
+      <hr>
+      <%= f.submit "Save your changes", class: "btn btn-primary btn-lg" %>
+    </div>
+  </form>
+  <% end %>
+
+  <hr>
+
+  <div id="reviews">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>8 Reviews <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></h4>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <button class="btn btn-secondary">Contact performer</button>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div id="map">
+    Insert map here with radius of performers possible locations.
+  </div>
+
+  <hr>
+
+  <div id="similar-performers">
+    Similar performers cards?
+  </div>
+
+  <br><br><br>
+
+</div>
+
