@@ -1,5 +1,5 @@
 <%=link_to performer_path(performer) do %>
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150');">
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= performer.picture %>');">
   <div class="card-title"><h3><%= performer.city %></h3></div>
     <div class="card-description">
       <h3><%= performer.first_name %></h3>
@@ -7,8 +7,10 @@
     </div>
   <img src="http://placehold.it/100x100" class="card-avatar">
 </div>
-<div class="card-list">
-  <p>Price: £<%= performer.hourly_rate %>/per hour</p>
-  <p>Rating: XXXX - < # > Comments</p>
-</div>
+<% if performer.hourly_rate && performer.reviews %>
+  <div class="card-list">
+    <p>Price: £<%= performer.hourly_rate %>/per hour</p>
+    <p>Rating: XXXX - < # > Comments</p>
+  </div>
+  <% end %>
 <% end %>

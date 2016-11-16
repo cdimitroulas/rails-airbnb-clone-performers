@@ -1,7 +1,7 @@
 pictures = ["http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209534/Airbnb-clone/AliciaKeys.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209538/Airbnb-clone/Snoop.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209531/Airbnb-clone/Rihana.jpg",
-            "https://cloudinary.com/console/media_library#/dialog/image/upload/Airbnb-clone/JustinB",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209529/Airbnb-clone/JustinB.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209526/Airbnb-clone/U2.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479208813/Airbnb-clone/gettyimages_117087793_wide-4f9cc3824e22a75519017d35ddf5fb2e54e672f1-s900-c85.jpg"]
 categories = ["Rock", "Pop", "DJ", "Entertainers"]
