@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 20161116135600) do
     t.string   "requirements"
     t.integer  "discount"
     t.string   "cancellation_policy"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "profile_picture"
     t.index ["confirmation_token"], name: "index_performers_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_performers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_performers_on_reset_password_token", unique: true, using: :btree
