@@ -42,9 +42,9 @@ address_array = ['3 The Square High Road London E10 5HR',
 '16 W Moor Rd Kinsley Pontefract WF9 5JT']
 
 20.times do
-  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
               phone_number: Faker::PhoneNumber.cell_phone , address: address_array[rand(0..address_array.length)],
-              email: Faker::Internet.email, encrypted_password: Devise.friendly_token[0,20],
+              email: Faker::Internet.email, password: 'password',
               profile_picture: nil )
 end
 
@@ -78,7 +78,8 @@ end
 
 Performer.all.each do |performer|
   rand(2..5).times do
-    Review.create(user_id: User.last.id, performer_id: performer.id , rating: random_rating, title: Faker::Name.name, description: correct_description(user_reviews))
+    puts "creating a review..."
+    Review.create!(user_id: User.find(rand(1..20)).id, performer_id: performer.id , rating: random_rating, title: Faker::Name.name, description: correct_description(user_reviews))
   end
 end
 

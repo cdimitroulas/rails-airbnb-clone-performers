@@ -84,14 +84,14 @@
   <div id="reviews">
     <div class="row">
       <div class="col-sm-12">
-        <h4><%= raise %> Reviews <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></h4>
+        <h4><%= @performer.reviews.count %> Reviews <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden= "true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></h4>
       </div>
     </div>
 
     <br>
 
     <div class="row">
-      <%= @reviews.each do |review| %>
+      <% @performer.reviews.each do |review| %>
         <div class="col-xs-12">
           <%= review.user.first_name %>
           <%= review.title %>
