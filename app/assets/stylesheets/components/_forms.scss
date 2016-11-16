@@ -2,3 +2,11 @@ div.form-inputs, div.form-actions, .form-header, div.link {
   margin: 30px auto;
   max-width: 50%;
 }
+#names-div, #address-div {
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.checkbox {
+  margin: 0 10px;
+}
