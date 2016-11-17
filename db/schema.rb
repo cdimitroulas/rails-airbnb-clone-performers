@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117105154) do
+ActiveRecord::Schema.define(version: 20161117151157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20161117105154) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "profile_picture",        default: "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479313226/Airbnb-clone/iStock_000033523696Small.jpg"
+    t.string   "artist_name"
+    t.string   "address"
     t.index ["confirmation_token"], name: "index_performers_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_performers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_performers_on_reset_password_token", unique: true, using: :btree
