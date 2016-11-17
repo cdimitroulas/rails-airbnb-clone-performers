@@ -1,15 +1,28 @@
-pictures = ["http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209534/Airbnb-clone/AliciaKeys.jpg",
+pictures = ["http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372720/Airbnb-clone/accordion-musical-instrument-handzuginstrument-musician-163823.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209538/Airbnb-clone/Snoop.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209531/Airbnb-clone/Rihana.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209529/Airbnb-clone/JustinB.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209526/Airbnb-clone/U2.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372704/Airbnb-clone/person-woman-music-musician.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372672/Airbnb-clone/city-show-break-dance-break-dancer.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372660/Airbnb-clone/pexels-photo-111253.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372635/Airbnb-clone/pexels-photo-132929.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372621/Airbnb-clone/fire-eaters-artist-juggler-fire-39075.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372611/Airbnb-clone/juggler-performer-water-sea-65297.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372599/Airbnb-clone/sing-singing-singer-microphone-64274.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372579/Airbnb-clone/pexels-photo-167519.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372563/Airbnb-clone/pexels-photo-167468.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372549/Airbnb-clone/pexels-photo-167444.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372535/Airbnb-clone/pexels-photo-89909.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372802/Airbnb-clone/man-person-red-white.jpg",
+            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479373066/Airbnb-clone/pexels-photo-167446.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479208813/Airbnb-clone/gettyimages_117087793_wide-4f9cc3824e22a75519017d35ddf5fb2e54e672f1-s900-c85.jpg"]
+
 categories = ["Rock", "Pop", "DJ", "Entertainers"]
 
 postcode_array = ['E10 5HR', 'E6 2LA', 'CM15 0BH', 'CM5 9BG', 'CM9 8QJ', 'CM3 6PA',
   'SW19 8NG', 'SW18 1GQ', 'SW6 3DP', 'SW9 7RY', 'RH14 9EP', 'RH2 7NX', 'RH16 3PH',
   'WC1N 1NN', 'WC2N 6HY', 'WC1H 0PJ', 'S70 5JS', 'S43 2AT', 'S42 6BX', 'S8 9JF',
-  'S2 3HB', 'WF14 8RA', 'WF3 3TQ', 'WF9 5JT']
+  'S2 3HB', 'WF14 8RA', 'WF3 3TQ', 'WF9 5JT', 'SW1V 1TQ', 'SW20 8YX', 'SW4 8BJ', 'N4 4PD',
+  'N7 8PB', 'N1 1DX', 'N6 4JA', 'N1P 2WT', 'E7 8JL', 'E17 9FU', 'E1 8GN', 'E11 4BY',
+  'E4 6TE', 'E2 9DL', 'M1 1HW', 'M1 2NY', 'M1 2WR', 'M1 3FR', 'M2 1DF']
 
 address_array = ['3 The Square High Road London E10 5HR',
 '36 Streatfeild Ave London E6 2LA',
@@ -44,7 +57,7 @@ address_array = ['3 The Square High Road London E10 5HR',
                  first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
                  phone_number: Faker::PhoneNumber.cell_phone , city: Faker::Address.city,
                  postcode: postcode_array[rand(0..postcode_array.length)],
-                 picture: pictures.sample, category: categories.sample, hourly_rate: rand(10..50),
+                 picture: pictures.sample, category: categories.sample, hourly_rate: rand(10..60),
                  profile: "Why do you build me up (build me up) Buttercup, baby
                           Just to let me down (let me down) and mess me around
                           And then worst of all (worst of all) you never call, baby
