@@ -4,8 +4,8 @@ class Performer < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  has_many :messages, as: :recipient
-  has_many :messages, as: :sender
+  has_many :messages_sent, class_name: "Message", as: :sender
+  has_many :messages_received, class_name: "Message", as: :recipient
 
 
   devise :database_authenticatable, :registerable,
