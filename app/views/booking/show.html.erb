@@ -1,2 +1,14 @@
-<h1>Booking#show</h1>
-<p>Find me in app/views/booking/show.html.erb</p>
+<div class="container">
+<h1>Booking Request</h1>
+  <h2>Please find below the details of your booking:</h2>
+    <div class="row">
+      <div class="col-sm-12">
+        <p><strong>Name of the performer: </strong><%= booking.artist_name %></p>
+        <p><strong>Date and start time: </strong><%= @booking.start_time %></p>
+        <p><strong>Date and end time: </strong><%= @booking.end_time %></p>
+        <p><strong>Location: </strong></p><%= @booking.location %></p>
+        <p><strong>Message: </strong><%= @booking.message%></p>
+       <div class="navbar-wagon-button"><%= link_to 'Confirm',user_show_path %></div>
+      </div>
+    </div>
+</div>
