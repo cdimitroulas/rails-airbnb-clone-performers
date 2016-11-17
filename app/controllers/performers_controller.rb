@@ -42,10 +42,10 @@ class PerformersController < ApplicationController
 
   def performer_params
     params.require(:performer).permit(:first_name, :last_name, :city, :description,
-                                      :members, :category, :event_types, :requirements,
-                                      :hourly_rate, :discount, :cancellation, :profile,
+                                      :members, :category, { event_types: [] }, :requirements,
+                                      :hourly_rate, :discount, :cancellation_policy, :profile,
                                       :profile_picture, :profile_picture_cache, :picture,
-                                      :picture_cache)
+                                      :picture_cache, :artist_name, :address, :phone_number)
   end
 
 end
