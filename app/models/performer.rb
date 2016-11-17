@@ -48,11 +48,13 @@ class Performer < ApplicationRecord
 
   def self.with_event_types(event_types_search)
     if event_types_search.present?
+      results = []
       all.map do |performer|
-        return performer if performer.event_types.include?(event_types_search)
+        results << performer if performer.event_types.include?(event_types_search)
       end
+      return results
     else
-      all
+      return all
     end
   end
 end
