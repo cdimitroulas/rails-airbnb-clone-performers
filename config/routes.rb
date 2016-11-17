@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'new/create'
+
+  get 'new/show'
+
+  get 'new/delete'
+
   devise_for :users
   devise_for :performers
   root to: 'pages#home'
