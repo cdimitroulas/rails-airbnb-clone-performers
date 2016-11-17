@@ -22,6 +22,8 @@
 }
 .btn-custom-red {
   background-color: #FF7E82;
+  color: white;
+  transition: background-color 1.5s, color 1s;
 }
 .btn-custom-red:hover {
   background-color: white;
