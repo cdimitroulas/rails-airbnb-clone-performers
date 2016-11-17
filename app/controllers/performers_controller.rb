@@ -31,7 +31,7 @@ class PerformersController < ApplicationController
   end
 
   def update
-    @performer = Performer.update(performer_params)
+    @performer = Performer.find(params[:id]).update(performer_params)
     redirect_to edit_performer_path(current_performer)
   end
 
@@ -43,7 +43,9 @@ class PerformersController < ApplicationController
   def performer_params
     params.require(:performer).permit(:first_name, :last_name, :city, :description,
                                       :members, :category, :event_types, :requirements,
-                                      :hourly_rate, :discount, :cancellation)
+                                      :hourly_rate, :discount, :cancellation, :profile,
+                                      :profile_picture, :profile_picture_cache, :picture,
+                                      :picture_cache)
   end
 
 end

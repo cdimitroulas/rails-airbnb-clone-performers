@@ -74,3 +74,17 @@
 .list-event-types > li {
   margin: 0 5px;
 }
+#banner-photo-upload{
+  position: absolute;
+  top: 100px;
+  right: 10px;
+  margin-right: -150px;
+}
+.profile-picture{
+  display: flex;
+  flex-direction: column;
+  .edit-icon{
+    position: absolute;
+    right: 100px;
+  }
+}
