@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # Performers resources
-  resources :performers, only: [:index, :show, :edit, :update]
+  resources :performers, only: [:index, :show, :edit, :update] do
+    resources :bookings, only: [:new, :create, :show, :delete]
+  end
   # patch '/performers/:id/edit', to: 'performers#update'
   # put '/performers/:id/edit', to: 'performers#update'
 
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   # Routes for bookings
-  resources :bookings, only: [:new, :create, :show, :delete]
+
 
   # Route for performer dashboard
   get '/dashboard', to: 'performers#dashboard'
