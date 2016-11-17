@@ -7,6 +7,7 @@
           <div class="col-xs-6 col-md-3 form-group">
             <label>Event</label>
             <select class="form-control" name="event_types">
+              <option></option>
               <option <%= 'selected' if params[:event_types] == "Private party" %> >Private party</option>
               <option <%= 'selected' if params[:event_types] == "Corporate event" %>>Corporate event</option>
               <option <%= 'selected' if params[:event_types] == "Wedding" %>>Wedding</option>
@@ -16,7 +17,13 @@
           </div>
           <div class="col-xs-6 col-md-3 form-group">
             <label>Category</label>
-            <input value="<%= params[:category] %>" class="form-control" name="category">
+            <select class="form-control" name="category">
+              <option></option>
+              <option <%= 'selected' if params[:event_types] == "Rock" %>>Rock</option>
+              <option <%= 'selected' if params[:event_types] == "Pop" %>>Pop</option>
+              <option <%= 'selected' if params[:event_types] == "DJ" %>>DJ</option>
+              <option <%= 'selected' if params[:event_types] == "Entertainer" %>>Entertainer</option>
+            </select>
           </div>
           <div class="col-xs-6 col-md-3 form-group">
             <label>Date</label>
@@ -79,19 +86,22 @@
     <div class="row">
       <% if @performers.length > 1  %>
         <% @performers.each do |performer| %>
+          <%#= binding.pry %>
           <div class="listing-cards col-xs-12 col-md-4">
-            <%= render "shared/cards", performer: performer %>
+            <%= render "shared/cards", performer: performer%>
           </div>
         <% end %>
+      <% elsif @performers.blank? %>
+        <%#= binding.pry %>
+        <h1 class="text-center">No results found!</h3>
       <% else %>
+        <%#= binding.pry %>
         <div class="listing-cards col-xs-12 col-md-4">
-          <%= render "shared/cards", performer: @performers %>
+          <% @performers.each do |performer| %>
+            <%= render "shared/cards", performer: performer %>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-
-<% content_for(:selected_attr) do %>
-  selected="selected"
-<% end %>
