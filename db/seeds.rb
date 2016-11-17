@@ -15,7 +15,7 @@ pictures = ["http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372720/Airbnb
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479373066/Airbnb-clone/pexels-photo-167446.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479208813/Airbnb-clone/gettyimages_117087793_wide-4f9cc3824e22a75519017d35ddf5fb2e54e672f1-s900-c85.jpg"]
 
-categories = ["Rock", "Pop", "DJ", "Entertainers"]
+categories = ["Rock", "Pop", "DJ", "Entertainer"]
 
 postcode_array = ['E10 5HR', 'E6 2LA', 'CM15 0BH', 'CM5 9BG', 'CM9 8QJ', 'CM3 6PA',
   'SW19 8NG', 'SW18 1GQ', 'SW6 3DP', 'SW9 7RY', 'RH14 9EP', 'RH2 7NX', 'RH16 3PH',
@@ -23,6 +23,8 @@ postcode_array = ['E10 5HR', 'E6 2LA', 'CM15 0BH', 'CM5 9BG', 'CM9 8QJ', 'CM3 6P
   'S2 3HB', 'WF14 8RA', 'WF3 3TQ', 'WF9 5JT', 'SW1V 1TQ', 'SW20 8YX', 'SW4 8BJ', 'N4 4PD',
   'N7 8PB', 'N1 1DX', 'N6 4JA', 'N1P 2WT', 'E7 8JL', 'E17 9FU', 'E1 8GN', 'E11 4BY',
   'E4 6TE', 'E2 9DL', 'M1 1HW', 'M1 2NY', 'M1 2WR', 'M1 3FR', 'M2 1DF']
+
+cities = ['London', 'Bristol', 'Manchester', 'Oxford', 'Sheffield', 'Liverpool', 'Birmingham', 'Leeds', 'Edinburgh']
 
 address_array = ['3 The Square High Road London E10 5HR',
 '36 Streatfeild Ave London E6 2LA',
@@ -52,10 +54,10 @@ address_array = ['3 The Square High Road London E10 5HR',
 '7 St Davids Cl Robin Hood Wakefield WF3 3TQ',
 '16 W Moor Rd Kinsley Pontefract WF9 5JT']
 
-20.times do
+50.times do
   Performer.create(email: Faker::Internet.email, password: Devise.friendly_token[0,20],
                  first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
-                 phone_number: Faker::PhoneNumber.cell_phone , city: Faker::Address.city,
+                 phone_number: Faker::PhoneNumber.cell_phone, city: cities.sample,
                  postcode: postcode_array[rand(0..postcode_array.length)],
                  picture: pictures.sample, category: categories.sample, hourly_rate: rand(10..60),
                  profile: "Why do you build me up (build me up) Buttercup, baby
