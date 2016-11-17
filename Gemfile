@@ -20,6 +20,9 @@ gem 'autoprefixer-rails'
 # Faker for seeding
 gem 'faker'
 
+# Image upload
+gem 'cloudinary'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
