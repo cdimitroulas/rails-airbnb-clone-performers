@@ -20,7 +20,10 @@ class PerformersController < ApplicationController
   end
 
   def show
-
+    @markers = Gmaps4rails.build_markers(@performer) do |performer, marker|
+      marker.lat performer.latitude
+      marker.lng performer.longitude
+    end
   end
 
   def edit
