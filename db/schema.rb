@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20161117105154) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.string   "start_time"
-    t.string   "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer  "price"
     t.string   "location"
     t.integer  "user_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20161117105154) do
     t.string   "city"
     t.string   "postcode"
     t.string   "phone_number"
-    t.string   "picture"
+    t.string   "picture",                default: "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479315452/Airbnb-clone/background_image.jpg"
     t.string   "video"
     t.datetime "created_at",                                                                                                                                null: false
     t.datetime "updated_at",                                                                                                                                null: false

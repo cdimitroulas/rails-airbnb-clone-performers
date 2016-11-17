@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :performers, only: [:index, :show, :edit, :update] do
     resources :bookings, only: [:new, :create, :show, :delete]
   end
+
+  get '/first_edit', to: "performers#first_edit"
   # patch '/performers/:id/edit', to: 'performers#update'
   # put '/performers/:id/edit', to: 'performers#update'
 

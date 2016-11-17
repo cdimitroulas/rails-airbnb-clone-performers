@@ -11,4 +11,14 @@ class ApplicationController < ActionController::Base
                                                        :password_confirmation, :category,
                                                        { event_types: [] } ])
   end
+
+  def after_sign_in_path_for(resource)
+    return super if resource.is_a?(User)
+
+    if resource.sign_in_count == 1
+      first_edit_path
+    else
+      dashboard_path
+    end
+  end
 end

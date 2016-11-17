@@ -1,0 +1,33 @@
+<div class="container">
+<h2 class="form-header">Create your profile</h2>
+  <div class="form-inputs">
+  <%= simple_form_for(current_performer, as: current_performer, url: performer_path(current_performer)) do |f| %>
+    <%= f.error_notification %>
+
+ <%= f.input :phone_number, required: true, autofocus: true %>
+      <div class="form-group">
+
+        <label>Address Details</label>
+        <div class="form-inline" id="address-div">
+          <%= f.input :city, required: true, autofocus: true, label: false, placeholder: "City" %>
+          <%= f.input :postcode, required: true, autofocus: true, label: false, placeholder: "Postcode" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Events You Would Perform At:</label>
+        <div class="form-inline text-center">
+          <%= f.input :event_types, as: :check_boxes, label: false, collection: ["Wedding", "Corporate Event", "Private Party", "Charity Event"], include_blank: false %>
+        </div>
+      </div>
+      <%= f.input :category, label: "Choose your category", as: :select, collection: ["Rock", "Pop", "DJs", "Entertainers"] %>
+      <%= f.input :profile, label: "Describe your act" %>
+      <%= f.input :hourly_rate, label: "Indicate your hourly rate" %>
+      <%= f.input :discount, label: "Discount you may offer" %>
+      <%= f.input :requirements, label: "Details any requirements you may have" %>
+  </div>
+       <div class="form-actions">
+        <%= f.button :submit, "Create your profile", class: "navbar-wagon-button" %>
+      </div>
+    <% end %>
+
+</div>
