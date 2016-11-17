@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   # Route for user dashboard
   resources :users, only: [:show]
 
+  # Routes for bookings
+  resources :bookings, only: [:new, :create, :show, :delete]
+
   # Route for performer dashboard
   get '/dashboard', to: 'performers#dashboard'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
