@@ -1,6 +1,6 @@
 class BannerPhotoUploader < PhotoUploader
 
-  version: :banner do
+  version :banner do
     resize_to_fit 1200, 300
   end
 
