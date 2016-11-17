@@ -35,7 +35,13 @@
         <div class="col-sm-3"><%= @performer.category %></div>
         <div class="col-sm-3">Good for Parties</div>
         <div class="col-sm-3">£ <%= @performer.hourly_rate %> /hour</div>
-        <div class="col-sm-3"><%= (average_rating(@performer)*2)  %>/10 Rating</div>
+        <div class="col-sm-3">
+          <% if @performer.reviews.blank? %>
+            No Reviews Yet!
+          <% else %>
+            Rated <%= average_rating(@performer) * 2 %>/10
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -47,7 +53,7 @@
       <div class="col-sm-12">
         <h4>About this performer</h4>
         <p><%= @performer.profile %></p>
-        <a href="">Book performer</a>
+        <%= link_to "Contact Performer", new_performer_message_path(@performer) %>
       </div>
     </div>
 
@@ -74,25 +80,34 @@
       <div class="col-sm-9">
         <p>Rate: <strong><%= @performer.hourly_rate ? @performer.hourly_rate : 'Tbc' %></strong></p>
         <p>Weekday Discount: <strong><%= @performer.discount ? @performer.discount : '25' %>%</strong></p>
-        <p>Cancellation: <strong><%= @performer.cancellation_policy ? @performer.cancellation : 'Flexible' %></strong></p>
+        <p>Cancellation: <strong><%= @performer.cancellation_policy ? @performer.cancellation_policy : 'Flexible' %></strong></p>
       </div>
     </div>
   </div>
 
   <hr>
 
-  <div id="reviews">
-    <div class="row">
-      <div class="col-sm-12">
-        <h4><%= @performer.reviews.count %> Reviews
-        <% average_rating(@performer).times do %>
-            <i class="fa fa-star" aria-hidden="true"></i>
-          <% end %>
-          <% (5 - average_rating(@performer)).times do %>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          <% end %>
+   <% if @performer.reviews.blank? %>
+    <div id="reviews">
+      <div class="row">
+        <div class="col-sm-12">
+          <h4>No Reviews Yet! </h4>
+        </div>
       </div>
-    </div>
+  <% else %>
+    <div id="reviews">
+      <div class="row">
+        <div class="col-sm-12">
+          <h4><%= @performer.reviews.count %> Reviews
+          <% average_rating(@performer).times do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% (5 - average_rating(@performer)).times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %></h4>
+        </div>
+      </div>
+    <% end %>
 
     <br>
 
