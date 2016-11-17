@@ -5,6 +5,9 @@ class PhotoUploader < CarrierWave::Uploader::Base
     return "airbnb-clone/" + model.name
   end
 
+  version :avatar do
+    cloudinary_transformation gravity: :face, width: 50, height: 50
+  end
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process resize_to_fit: [50, 50]
