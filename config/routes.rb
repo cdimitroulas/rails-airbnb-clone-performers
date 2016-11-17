@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'messages/new'
+
+  get 'messages/create'
+
+  get 'messages/show'
+
   devise_for :users
   devise_for :performers
   root to: 'pages#home'
