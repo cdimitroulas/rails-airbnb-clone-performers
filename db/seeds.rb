@@ -1,7 +1,6 @@
 pictures = ["http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372720/Airbnb-clone/accordion-musical-instrument-handzuginstrument-musician-163823.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209538/Airbnb-clone/Snoop.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372704/Airbnb-clone/person-woman-music-musician.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372672/Airbnb-clone/city-show-break-dance-break-dancer.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372660/Airbnb-clone/pexels-photo-111253.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372635/Airbnb-clone/pexels-photo-132929.jpg",
             "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372621/Airbnb-clone/fire-eaters-artist-juggler-fire-39075.jpg",
