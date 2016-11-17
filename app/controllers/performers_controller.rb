@@ -1,4 +1,6 @@
 class PerformersController < ApplicationController
+  before_action :set_performer, only: [:show, :edit, :update]
+
   def index
     @performers = Performer.where.not(latitude: nil, longitude: nil)
     if params[:postcode].present?
@@ -18,11 +20,11 @@ class PerformersController < ApplicationController
   end
 
   def show
-    @performer = Performer.find(params[:id])
+
   end
 
   def edit
-    @performer = Performer.find(params[:id])
+
     if current_performer.id == params[:id].to_i
       return
     else
@@ -31,7 +33,7 @@ class PerformersController < ApplicationController
   end
 
   def update
-    @performer = Performer.find(params[:id]).update(performer_params)
+    @performer.update(performer_params)
     redirect_to edit_performer_path(current_performer)
   end
 
@@ -41,11 +43,14 @@ class PerformersController < ApplicationController
   private
 
   def performer_params
-    params.require(:performer).permit(:first_name, :last_name, :city, :description,
-                                      :members, :category, :event_types, :requirements,
+    params.require(:performer).permit(:first_name, :last_name, :city, :members, :category, :event_types, :requirements,
                                       :hourly_rate, :discount, :cancellation, :profile,
                                       :profile_picture, :profile_picture_cache, :picture,
                                       :picture_cache)
+  end
+
+  def set_performer
+    @performer = Performer.find(params[:id])
   end
 
 end
