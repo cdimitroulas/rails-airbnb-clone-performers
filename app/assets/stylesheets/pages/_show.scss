@@ -1,7 +1,8 @@
 .show-banner {
-  height: 60vh;
+  height: 40vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
+  background-position: center 25%;
 }
 .profile-image{
   margin-top: 15px;
