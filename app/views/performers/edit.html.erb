@@ -57,29 +57,22 @@
       <div class="editable-text" id="icons">
         <div class="col-sm-12">
           <hr>
-              <div class="col-sm-3" id="label-and-icon"><%= icon('list-ul') %>
-                <% current_performer.event_types.each do |event| %>
-                  <%= event + " | " %>
-                <% end %>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('microphone', class: "big-icon") %><%= current_performer.category %></div>
+              <div class="col-sm-3" id="label-and-icon"><%= icon('thumbs-o-up', class: "big-icon") %>
+                <%= current_performer.event_types[1] %>
               </div>
-              <div class="col-sm-3" id="label-and-icon"><%= icon('bars') %><%= current_performer.category %></div>
-              <div class="col-sm-3" id="label-and-icon"><%= icon('gbp') %><%= current_performer.hourly_rate.to_s + "/hour" %></div>
-              <div class="col-sm-3" id="label-and-icon"><%= icon('trophy') %>Rating(Well rated?)</div>
-              <div class="edit-icon" id="label-and-icon"><%= icon('pencil') %></div>
-        </div>
-
-        <div class="col-sm-12 hidden">
-          <hr>
-          <div class="form-div" id="icons-form">
-            <div class="col-sm-3" id="label-and-icon"><%= icon('list-ul') %>
-                <% current_performer.event_types.each do |event| %>
-                  <%= event + " | " %>
-                <% end %>
+              <div class="col-sm-3" id="label-and-icon">
+                <%= icon('money', class: "big-icon") %><%= current_performer.hourly_rate.to_s + "/hour" %>
               </div>
-            <%= f.input :category, label: false %>
-            <%= f.input :hourly_rate, label: false %>
-            <div class="col-sm-3" id="label-and-icon"><%= icon('trophy') %>Rating(Well rated?)</div>
-          </div>
+              <div class="col-sm-3" id="label-and-icon">
+              <% if current_performer.reviews.blank? %>
+                <%= icon('line-chart', class: "big-icon") %>
+                No Reviews Yet!
+              <% else %>
+                <%= icon('line-chart', class: "big-icon") %>
+                Rated <%= average_rating(current_performer) * 2 %>/10
+              <% end %>
+              </div>
         </div>
       </div>
     </div>
@@ -91,15 +84,14 @@
       <div class="editable-text" id="about">
         <div class="col-sm-12">
           <h4>About this performer</h4>
-            <p>This performer is blah blah blah. They have been playing the banjo for 25 years. Incredible modern banjo sound.</p>
-            <a href="">Contact <%= current_performer.first_name %></a>
+            <p><%= current_performer.profile %></p>
+            <a href="">Contact performer <%= current_performer.first_name %></a>
             <div class="edit-icon"><%= icon('pencil') %></div>
         </div>
         <div class="col-sm-12 hidden">
           <div class="form-div">
             <h4>About this performer</h4>
             <%= f.input :profile, as: :text, id: "description-textarea" %>
-            <!-- <textarea name="description" class="form-control" id="description-textarea">some description </textarea><br> -->
             <a href="">Contact <%= current_performer.first_name %></a>
           </div>
         </div>
@@ -113,7 +105,7 @@
         <h4>Details</h4>
       </div>
       <div class="col-sm-9">
-        <p>Members: <strong>1</strong></p>
+        <p>Members: <strong><%= current_performer.members ||= 1 %></strong></p>
         <p>Category: <strong><%= current_performer.category %></strong></p>
         <p id="event-types">Good for:</p>
           <ul class="list-inline list-event-types">
@@ -123,7 +115,9 @@
             </li>
           <% end %>
           </ul>
-          <% unless current_performer.requirements.blank? %>
+          <% if current_performer.requirements.blank? %>
+            <p>Special Requirements: <strong>None</strong></p>
+          <% else %>
             <p>Special Requirements: <strong><%= current_performer.requirements %></strong></p>
           <% end %>
       </div>
@@ -141,7 +135,7 @@
         <% end %>
         <% unless current_performer.category.blank? %>
           <div class="row">
-            <%= f.input :category %>
+            <%= f.input :category, collection: ["Rock", "Pop", "DJ", "Entertainer"] %>
           </div>
         <% end %>
         <% unless current_performer.event_types.blank? %>
@@ -166,9 +160,21 @@
         <h4>Prices</h4>
       </div>
       <div class="col-sm-9">
-        <p>Rate: <strong>2</strong></p>
-        <p>Weekday Discount: <strong>25%</strong></p>
-        <p>Cancellation: <strong>Flexible</strong></p>
+        <% if current_performer.hourly_rate.blank? %>
+          <p>Rate: <strong>not specified</strong></p>
+        <% else %>
+          <p>Rate: <strong><%= current_performer.hourly_rate %></strong></p>
+        <% end %>
+        <% if  %>
+          <p>Weekday Discount: <strong><%= current_performer.discount %>%</strong></p>
+        <% else %>
+          <p>Weekday Discount: <strong>not specified</strong></p>
+        <% end %>
+        <% if  %>
+          <p>Cancellation: <strong><%= current_performer.cancellation_policy %></strong></p>
+        <% else %>
+        <p>Cancellation: <strong>not specified</strong></p>
+        <% end %>
       </div>
       <div class="edit-icon"><%= icon('pencil') %></div>
     </div>
@@ -206,43 +212,74 @@
   <% end %>
 
   <hr>
-
-  <div id="reviews">
-    <div class="row">
-      <div class="col-sm-12">
-        <h4>8 Reviews <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></h4>
+  <% if current_performer.reviews.blank? %>
+    <div id="reviews">
+      <div class="row">
+        <div class="col-sm-12">
+          <h4>No Reviews Yet! </h4>
+        </div>
       </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-
-    </div>
-
-    <hr>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <button class="btn btn-secondary">Contact performer</button>
+  <% else %>
+    <div id="reviews">
+      <div class="row">
+        <div class="col-sm-12">
+          <h4><%= @performer.reviews.count %> Reviews
+          <% average_rating(@performer).times do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% (5 - average_rating(@performer)).times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %></h4>
+        </div>
       </div>
+
+      <br>
+
+      <% @performer.reviews.each do |review| %>
+        <div class="row">
+          <div class="col-sm-3">
+            <h4><%= review.user.first_name + ' ' + review.user.last_name %></h4>
+          </div>
+          <div class="col-sm-9">
+              <p><%= review.description %></p>
+          </div>
+        </div>
+      <% end %>
     </div>
+  <% end %>
+  </div>
+
+
+  <hr>
+
+  <div id="map" style="width: 100%; height: 300px;">
+    <% content_for(:after_js) do %>
+      <script>
+        $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          var style = [{"stylers":[{"hue":"#dd0d0d"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]}];
+
+          handler.buildMap({ provider: {styles: style}, internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @markers.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            if (markers.length == 0) {
+              handler.getMap().setZoom(6);
+            } else if (markers.length == 1) {
+              handler.getMap().setZoom(13);
+            }
+          });
+        });
+      </script>
+    <% end %>
   </div>
 
   <hr>
 
-  <div id="map">
-    Insert map here with radius of performers possible locations.
-  </div>
-
-  <hr>
-
-  <div id="similar-performers">
-    Similar performers cards?
-  </div>
-
-  <br><br><br>
-
 </div>
 </div>
+
+<% content_for(:title) do %>
+  <%= 'Showcase - ' + @performer.first_name + ' ' + @performer.last_name  %>
+<% end %>
 
