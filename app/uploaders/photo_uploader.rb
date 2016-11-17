@@ -2,7 +2,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
   def public_id
-    return "airbnb-clone/" + model.name
+    return "airbnb-clone/" + model.first_name
   end
 
   version :avatar do

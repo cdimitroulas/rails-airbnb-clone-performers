@@ -1,1 +1,13 @@
+<div class="container">
 <h1>Edit your profile</h1>
+  <%= simple_form_for current_user do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :email %>
+    <%= f.input :profile_picture %>
+    <%= f.input :profile_picture_cache, as: :hidden %>
+    <%= f.submit "Save your changes", class: "navbar-wagon-button" %>
+  <% end %>
+</div>
