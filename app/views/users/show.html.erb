@@ -5,7 +5,7 @@
       <br>
         <img src="<%= current_user.profile_picture %>" class="avatar-square">
         <div class="profile-link">
-          <p><%= link_to 'Edit profile' %></p>
+          <p><%= link_to 'Edit profile', edit_user_path(current_user) %></p>
         </div>
       </div>
 
