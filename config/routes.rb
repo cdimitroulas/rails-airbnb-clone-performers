@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # put '/performers/:id/edit', to: 'performers#update'
 
   # Route for user dashboard
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 
   # Routes for bookings
 
