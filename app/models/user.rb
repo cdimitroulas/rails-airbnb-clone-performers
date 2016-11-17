@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :reviews
   has_many :bookings
+  has_many :messages, as: :sender
+  has_many :messages, as: :recipient
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

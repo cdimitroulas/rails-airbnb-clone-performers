@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(version: 20161117151157) do
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string   "subject"
+    t.text     "content"
+    t.boolean  "read",           default: false
+    t.string   "sender_type"
+    t.integer  "sender_id"
+    t.string   "recipient_type"
+    t.integer  "recipient_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["recipient_type", "recipient_id"], name: "index_messages_on_recipient_type_and_recipient_id", using: :btree
+    t.index ["sender_type", "sender_id"], name: "index_messages_on_sender_type_and_sender_id", using: :btree
+  end
+
   create_table "performers", force: :cascade do |t|
     t.string   "email"
     t.string   "encrypted_password",     default: "",                                                                                                       null: false

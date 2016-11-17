@@ -1,8 +1,12 @@
 class Performer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :messages, as: :recipient
+  has_many :messages, as: :sender
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,

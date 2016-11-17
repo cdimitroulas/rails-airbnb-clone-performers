@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Performers resources
   resources :performers, only: [:index, :show, :edit, :update] do
     resources :bookings, only: [:new, :create, :show, :delete]
+    resources :messages, only: [:new, :create, :show]
   end
 
   get '/first_edit', to: "performers#first_edit"
