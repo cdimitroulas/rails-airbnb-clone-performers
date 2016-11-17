@@ -1,18 +1,18 @@
-pictures = ["http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372720/Airbnb-clone/accordion-musical-instrument-handzuginstrument-musician-163823.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479209538/Airbnb-clone/Snoop.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372704/Airbnb-clone/person-woman-music-musician.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372660/Airbnb-clone/pexels-photo-111253.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372635/Airbnb-clone/pexels-photo-132929.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372621/Airbnb-clone/fire-eaters-artist-juggler-fire-39075.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372611/Airbnb-clone/juggler-performer-water-sea-65297.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372599/Airbnb-clone/sing-singing-singer-microphone-64274.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372579/Airbnb-clone/pexels-photo-167519.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372563/Airbnb-clone/pexels-photo-167468.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372549/Airbnb-clone/pexels-photo-167444.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372535/Airbnb-clone/pexels-photo-89909.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479372802/Airbnb-clone/man-person-red-white.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479373066/Airbnb-clone/pexels-photo-167446.jpg",
-            "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479208813/Airbnb-clone/gettyimages_117087793_wide-4f9cc3824e22a75519017d35ddf5fb2e54e672f1-s900-c85.jpg"]
+pictures = ["image/upload/v1479372720/Airbnb-clone/accordion-musical-instrument-handzuginstrument-musician-163823.jpg",
+            "image/upload/v1479209538/Airbnb-clone/Snoop.jpg",
+            "image/upload/v1479372704/Airbnb-clone/person-woman-music-musician.jpg",
+            "image/upload/v1479372660/Airbnb-clone/pexels-photo-111253.jpg",
+            "image/upload/v1479372635/Airbnb-clone/pexels-photo-132929.jpg",
+            "image/upload/v1479372621/Airbnb-clone/fire-eaters-artist-juggler-fire-39075.jpg",
+            "image/upload/v1479372611/Airbnb-clone/juggler-performer-water-sea-65297.jpg",
+            "image/upload/v1479372599/Airbnb-clone/sing-singing-singer-microphone-64274.jpg",
+            "image/upload/v1479372579/Airbnb-clone/pexels-photo-167519.jpg",
+            "image/upload/v1479372563/Airbnb-clone/pexels-photo-167468.jpg",
+            "image/upload/v1479372549/Airbnb-clone/pexels-photo-167444.jpg",
+            "image/upload/v1479372535/Airbnb-clone/pexels-photo-89909.jpg",
+            "image/upload/v1479372802/Airbnb-clone/man-person-red-white.jpg",
+            "image/upload/v1479373066/Airbnb-clone/pexels-photo-167446.jpg",
+            "image/upload/v1479208813/Airbnb-clone/gettyimages_117087793_wide-4f9cc3824e22a75519017d35ddf5fb2e54e672f1-s900-c85.jpg"]
 
 categories = ["Rock", "Pop", "DJ", "Entertainer"]
 
@@ -54,11 +54,11 @@ address_array = ['3 The Square High Road London E10 5HR',
 '16 W Moor Rd Kinsley Pontefract WF9 5JT']
 
 50.times do
-  Performer.create(email: Faker::Internet.email, password: Devise.friendly_token[0,20],
+  performer = Performer.new(email: Faker::Internet.email, password: Devise.friendly_token[0,20],
                  first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
                  phone_number: Faker::PhoneNumber.cell_phone, city: cities.sample,
                  postcode: postcode_array[rand(0..postcode_array.length)],
-                 picture: pictures.sample, category: categories.sample, hourly_rate: rand(10..60),
+                 category: categories.sample, hourly_rate: rand(10..60),
                  profile: "Why do you build me up (build me up) Buttercup, baby
                           Just to let me down (let me down) and mess me around
                           And then worst of all (worst of all) you never call, baby
@@ -66,6 +66,9 @@ address_array = ['3 The Square High Road London E10 5HR',
                           I need you (I need you) more than anyone, darlin
                           You know that I have from the start
                           So build me up (build me up) Buttercup, don't break my heart")
+
+  performer.write_attribute :picture, pictures.sample
+  performer.save
 end
 
 20.times do
