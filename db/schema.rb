@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116135600) do
+ActiveRecord::Schema.define(version: 20161117105154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.string   "start_time"
+    t.string   "end_time"
+    t.integer  "price"
+    t.string   "location"
+    t.integer  "user_id"
+    t.integer  "performer_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["performer_id"], name: "index_bookings_on_performer_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
+  end
 
   create_table "performers", force: :cascade do |t|
     t.string   "email"
@@ -41,7 +54,7 @@ ActiveRecord::Schema.define(version: 20161116135600) do
     t.string   "city"
     t.string   "postcode"
     t.string   "phone_number"
-    t.string   "picture",                default: "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479315452/Airbnb-clone/background_image.jpg"
+    t.string   "picture"
     t.string   "video"
     t.datetime "created_at",                                                                                                                                null: false
     t.datetime "updated_at",                                                                                                                                null: false
@@ -95,6 +108,8 @@ ActiveRecord::Schema.define(version: 20161116135600) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bookings", "performers"
+  add_foreign_key "bookings", "users"
   add_foreign_key "reviews", "performers"
   add_foreign_key "reviews", "users"
 end
