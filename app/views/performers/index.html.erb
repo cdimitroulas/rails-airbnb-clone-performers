@@ -6,7 +6,13 @@
 
           <div class="col-xs-6 col-md-3 form-group">
             <label>Event</label>
-            <input value="<%= params[:event] %>" class="form-control" name="event">
+            <select class="form-control" name="event_types">
+              <option <%= 'selected' if params[:event_types] == "Private party" %> >Private party</option>
+              <option <%= 'selected' if params[:event_types] == "Corporate event" %>>Corporate event</option>
+              <option <%= 'selected' if params[:event_types] == "Wedding" %>>Wedding</option>
+              <option <%= 'selected' if params[:event_types] == "Charity event" %>>Charity event</option>
+            </select>
+            <!-- <input value="<%#= params[:event_types] %>" class="form-control" name="event_types"> -->
           </div>
           <div class="col-xs-6 col-md-3 form-group">
             <label>Category</label>
@@ -85,3 +91,7 @@
     </div>
   </div>
 </div>
+
+<% content_for(:selected_attr) do %>
+  selected="selected"
+<% end %>
