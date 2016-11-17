@@ -3,7 +3,7 @@ class Performer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :reviews
   has_many :bookings
-  has_many :messages
+  has_many :messages, as: :sender
 
 
   devise :database_authenticatable, :registerable,

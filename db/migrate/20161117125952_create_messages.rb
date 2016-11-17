@@ -4,8 +4,8 @@ class CreateMessages < ActiveRecord::Migration[5.0]
       t.string :subject
       t.text :content
       t.boolean :read, default: false
-      t.references :user, foreign_key: true
-      t.references :performer, foreign_key: true
+      t.references :sender, polymorphic: true, index: true
+      t.references :recipient, polymorphic: true, index: true
 
       t.timestamps
     end
