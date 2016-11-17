@@ -1,10 +1,6 @@
 class PhotoUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
-  def public_id
-    return "airbnb-clone/" + model.first_name
-  end
-
   version :avatar do
     cloudinary_transformation gravity: :face, width: 50, height: 50
   end
@@ -18,4 +14,5 @@ class PhotoUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
+
 end
