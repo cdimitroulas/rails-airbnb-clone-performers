@@ -1,24 +1,12 @@
 Rails.application.routes.draw do
-  get 'booking/new'
-
-  get 'booking/create'
-
-  get 'booking/show'
-
-  get 'booking/delete'
-
-  get 'new/create'
-
-  get 'new/show'
-
-  get 'new/delete'
-
   devise_for :users
   devise_for :performers
   root to: 'pages#home'
 
   # Performers resources
-  resources :performers, only: [:index, :show, :edit, :update]
+  resources :performers, only: [:index, :show, :edit, :update] do
+    resources :bookings, only: [:new, :create, :show, :delete]
+  end
   # patch '/performers/:id/edit', to: 'performers#update'
   # put '/performers/:id/edit', to: 'performers#update'
 
@@ -26,7 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   # Routes for bookings
-  resources :bookings, only: [:new, :create, :show, :delete]
+
 
   # Route for performer dashboard
   get '/dashboard', to: 'performers#dashboard'
