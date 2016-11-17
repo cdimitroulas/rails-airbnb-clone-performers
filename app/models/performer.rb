@@ -18,8 +18,7 @@ class Performer < ApplicationRecord
   end
 
   after_validation :geocode, if: :postcode_changed?
-  # scope :category, -> (category) { where category: category }
-  # # scope :city, -> (city) { where city: city }
-  # scope :location, -> (location_id) { where location_id: location_id }
-  # scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
+
+  mount_uploader :profile_picture, PhotoUploader
+  mount_uploader :picture, BannerPhotoUploader
 end
