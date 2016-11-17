@@ -91,7 +91,7 @@
       <div class="editable-text" id="about">
         <div class="col-sm-12">
           <h4>About this performer</h4>
-            <p>This performer is blah blah blah. They have been playing the banjo for 25 years. Incredible modern banjo sound.</p>
+            <p><%= current_performer.profile %></p>
             <a href="">Contact <%= current_performer.first_name %></a>
             <div class="edit-icon"><%= icon('pencil') %></div>
         </div>
@@ -113,7 +113,7 @@
         <h4>Details</h4>
       </div>
       <div class="col-sm-9">
-        <p>Members: <strong>1</strong></p>
+        <p>Members: <strong><%= current_performer.members ||= 1 %></strong></p>
         <p>Category: <strong><%= current_performer.category %></strong></p>
         <p id="event-types">Good for:</p>
           <ul class="list-inline list-event-types">
