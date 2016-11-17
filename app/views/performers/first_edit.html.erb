@@ -1,0 +1,49 @@
+<div class="container">
+<h2 class="form-header">Create your profile</h2>
+  <div class="form-inputs">
+  <%= simple_form_for(current_performer, as: current_performer, url: performer_path(current_performer)) do |f| %>
+    <%= f.error_notification %>
+
+  <%= f.input :artist_name, autofocus: true %>
+  <%= f.input :phone_number, required: true, autofocus: true %>
+      <div class="form-group">
+
+        <label>Address Details</label>
+        <div id="address-div">
+          <div class="container">
+            <div class="row">
+              <div class="col-4">
+                <%= f.input :address, label: false, placeholder: "Address" %>
+              </div>
+              <div class="col-4">
+                <%= f.input :city, required: true, autofocus: true, label: false, placeholder: "City" %>
+              </div>
+              <div class="col-4">
+                <%= f.input :postcode, required: true, autofocus: true, label: false, placeholder: "Postcode" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Events You Would Perform At:</label>
+        <div class="form-inline text-center">
+          <%= f.input :event_types, as: :check_boxes, label: false, collection: ["Wedding", "Corporate Event", "Private Party", "Charity Event"], include_blank: false %>
+        </div>
+      </div>
+      <%= f.input :category, label: "Choose your category", as: :select, collection: ["Rock", "Pop", "DJ", "Entertainer"] %>
+      <%= f.input :profile, label: "Describe you and your act" %>
+      <%= f.input :hourly_rate, label: "Indicate your hourly rate" %>
+      <%= f.input :cancellation_policy, label: "Cancellation policy" %>
+      <%= f.input :requirements, label: "Details any requirements you may have" %>
+      <%= f.input :profile_picture, label: "Upload your profile picture" %>
+      <%= f.input :profile_picture_cache, label: false, as: :hidden %>
+      <%= f.input :picture, label: "Upload picture" %>
+      <%= f.input :picture_cache, label: false, as: :hidden %>
+  </div>
+       <div class="form-actions">
+        <%= f.button :submit, "Create your profile", class: "navbar-wagon-button" %>
+      </div>
+    <% end %>
+
+</div>

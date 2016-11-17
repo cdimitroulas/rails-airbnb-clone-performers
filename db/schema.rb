@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161117125952) do
+=======
+ActiveRecord::Schema.define(version: 20161117151157) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.string   "start_time"
-    t.string   "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer  "price"
     t.string   "location"
     t.integer  "user_id"
@@ -64,7 +68,7 @@ ActiveRecord::Schema.define(version: 20161117125952) do
     t.string   "city"
     t.string   "postcode"
     t.string   "phone_number"
-    t.string   "picture"
+    t.string   "picture",                default: "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479315452/Airbnb-clone/background_image.jpg"
     t.string   "video"
     t.datetime "created_at",                                                                                                                                null: false
     t.datetime "updated_at",                                                                                                                                null: false
@@ -75,6 +79,8 @@ ActiveRecord::Schema.define(version: 20161117125952) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "profile_picture",        default: "http://res.cloudinary.com/dplnt2ozo/image/upload/v1479313226/Airbnb-clone/iStock_000033523696Small.jpg"
+    t.string   "artist_name"
+    t.string   "address"
     t.index ["confirmation_token"], name: "index_performers_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_performers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_performers_on_reset_password_token", unique: true, using: :btree

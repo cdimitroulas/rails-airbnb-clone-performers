@@ -14,11 +14,13 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :show, :delete]
     resources :messages, only: [:new, :create, :show]
   end
+
+  get '/first_edit', to: "performers#first_edit"
   # patch '/performers/:id/edit', to: 'performers#update'
   # put '/performers/:id/edit', to: 'performers#update'
 
   # Route for user dashboard
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 
   # Routes for bookings
 

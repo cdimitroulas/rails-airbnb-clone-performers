@@ -3,6 +3,10 @@
 <div class="edit-banner show-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path(current_performer.picture) %>)
 ;">
   <div class="edit-icon"><%= icon('pencil') %></div>
+  <div class="hidden form-div" id="banner-photo-upload">
+    <%= f.input :picture, label: false %>
+    <%= f.input :picture_cache, label: false, as: :hidden %>
+  </div>
 </div>
 
 <br>
@@ -40,6 +44,10 @@
           <div class="editable-text profile-picture">
             <img src="<%= current_performer.profile_picture %>" alt="profile-picture" class="avatar-large">
              <div class="edit-icon"><%= icon('pencil') %></div>
+             <div class="hidden form-div" id="profile-picture-upload">
+               <%= f.input :profile_picture, label: false %>
+               <%= f.input :profile_picture_cache, label: false, as: :hidden %>
+             </div>
           </div>
         </div>
       </div>
@@ -192,7 +200,7 @@
 
     <div class="text-center">
       <hr>
-      <%= f.submit "Save your changes", class: "btn btn-primary btn-lg" %>
+      <%= f.submit "Save your changes", class: "navbar-wagon-button" %>
     </div>
   </form>
   <% end %>
