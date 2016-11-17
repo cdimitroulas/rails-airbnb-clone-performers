@@ -127,14 +127,14 @@
           var handler = Gmaps.build('Google');
           var style = [{"stylers":[{"hue":"#dd0d0d"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]}];
 
-          handler.buildMap({ provider: {styles: style}, internal: { id: 'map' } }, function() {
+          handler.buildMap({ provider: { styles: style, scrollwheel: false }, internal: { id: 'map' } }, function() {
             markers = handler.addMarkers(<%= raw @markers.to_json %>);
             handler.bounds.extendWith(markers);
             handler.fitMapToBounds();
             if (markers.length == 0) {
-              handler.getMap().setZoom(6);
+              handler.getMap().setZoom(10);
             } else if (markers.length == 1) {
-              handler.getMap().setZoom(13);
+              handler.getMap().setZoom(10);
             }
           });
         });
