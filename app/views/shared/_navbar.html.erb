@@ -22,7 +22,11 @@
       <%= link_to user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
           <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
+          <% unless current_user.messages_received.where(read: false).blank? %>
+            <div class="badge badge-blue">
+              <%= current_user.messages_received.where(read: false).count %>
+            </div>
+          <% end %>
         </div>
       <% end %>
 
@@ -56,7 +60,11 @@
       <%= link_to dashboard_path(current_performer), class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
           <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
+          <% unless current_performer.messages_received.where(read: false).blank? %>
+            <div class="badge badge-blue">
+              <%= current_performer.messages_received.where(read: false).count %>
+            </div>
+          <% end %>
         </div>
       <% end %>
 
