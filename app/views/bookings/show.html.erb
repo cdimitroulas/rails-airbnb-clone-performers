@@ -1,14 +1,19 @@
-<div class="container">
-  <h1>Your booking request:</h1>
-    <div class="row">
-      <div class="col-sm-12">
-        <p><strong>You have booked </strong><%= @booking.performer.first_name %></p>
-        <p><strong>From </strong><%= @booking.start_time %></p>
-        <p><strong>until </strong><%= @booking.end_time %></p>
-        <p><strong>at </strong></p><%= @booking.location %></p>
-        <p><strong>Message: </strong><%= @booking.message%></p>
-        <p>This request will become a live booking once the performer confirms his availability.</p>
-       <div class="navbar-wagon-button"><%= link_to 'Confirm your request', user_show_path %></div>
-      </div>
-    </div>
+<div class="container text-center">
+  <div id="booking-title">
+    <h1>Your booking request:</h1>
+  </div>
+
+  <div class="booking-details">
+    <p><strong>You have booked </strong><%= @booking.performer.first_name %></p>
+    <p><strong>From </strong><%= @booking.start_time %>
+    <strong> until </strong><%= @booking.end_time %></p>
+    <p><strong>at </strong><%= @booking.location %></p>
+    <p><strong>Message: </strong></p>
+    <p><%= @booking.message %></p>
+    <p>This request will become a live booking once the performer confirms his availability.</p>
+  </div>
+  <div class="confirm-buttons">
+    <button class="btn btn-secondary"><%= link_to 'Go back', performer_path(id: @booking.performer.id), { class: "button-link"} %></button>
+    <button class="btn btn-danger"><%= link_to 'Confirm your request', user_path, { class: "button-link"} %></button>
+  </div>
 </div>
