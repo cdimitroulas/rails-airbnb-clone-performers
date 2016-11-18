@@ -236,7 +236,11 @@ DEPENDENCIES
   gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
+<<<<<<< HEAD
+  jquery-ui-rails
+=======
   letter_opener
+>>>>>>> master
   listen (~> 3.0.5)
   pg
   pry-byebug

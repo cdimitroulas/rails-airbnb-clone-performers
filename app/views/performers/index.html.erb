@@ -19,10 +19,10 @@
             <label>Category</label>
             <select class="form-control" name="category">
               <option></option>
-              <option <%= 'selected' if params[:event_types] == "Rock" %>>Rock</option>
-              <option <%= 'selected' if params[:event_types] == "Pop" %>>Pop</option>
-              <option <%= 'selected' if params[:event_types] == "DJ" %>>DJ</option>
-              <option <%= 'selected' if params[:event_types] == "Entertainer" %>>Entertainer</option>
+              <option <%= 'selected' if params[:category] == "Rock" %>>Rock</option>
+              <option <%= 'selected' if params[:category] == "Pop" %>>Pop</option>
+              <option <%= 'selected' if params[:category] == "DJ" %>>DJ</option>
+              <option <%= 'selected' if params[:category] == "Entertainer" %>>Entertainer</option>
             </select>
           </div>
           <div class="col-xs-6 col-md-3 form-group">
@@ -43,13 +43,18 @@
         <div class="form-search form-inline">
           <input value="<%= params[:time_in] %>" type="hidden" name="time_in" class="form-control">
           <input value="<%= params[:time_out] %>" type="hidden" name="time_out" class="form-control">
+          <p>
+            <label id="slider-label" for="amount">Hourly Rate range:</label>
+            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+          </p>
+          <div id="slider-range"></div>
           <div class="input-group">
-            <span class="input-group-addon ">£</span>
-            <input value="<%= params[:min_price] %>" type="min-price" placeholder="Minimum Price" class="form-control" name="min_price">
+           <!--  <span class="input-group-addon ">£</span> -->
+            <input value="<%= params[:min_price] %>" type="hidden" placeholder="Minimum Price" class="form-control" name="min_price">
           </div>
           <div class="input-group">
-            <span class="input-group-addon">£</span>
-            <input value="<%= params[:max_price] %>" type="max-price" placeholder="Maximum Price" class="form-control" name="max_price">
+           <!--  <span class="input-group-addon">£</span> -->
+            <input value="<%= params[:max_price] %>" type="hidden" placeholder="Maximum Price" class="form-control" name="max_price">
           </div>
             <input type="submit" value="Search" class="navbar-wagon-item navbar-wagon-button btn">
         </div>
@@ -76,7 +81,22 @@
             handler.getMap().setZoom(12);
           }
         });
-      });
+
+        $( "#slider-range" ).slider({
+            range: true,
+            min: 0,
+            max: 2000,
+            values: [ <%= j params[:min_price].present? ? params[:min_price] : '200' %>, <%= j params[:max_price].present? ? params[:max_price] : '500' %> ],
+            slide: function( event, ui ) {
+              $( "#amount" ).val( "£" + ui.values[ 0 ] + " - £" + ui.values[ 1 ] );
+              $('[name=min_price]').val(ui.values[0]);
+              $('[name=max_price]').val(ui.values[1]);
+            }
+          });
+
+          $( "#amount" ).val( "£" + $( "#slider-range" ).slider( "values", 0 ) +
+            " - £" + $( "#slider-range" ).slider( "values", 1 ) );
+        });
     </script>
   <% end %>
 
