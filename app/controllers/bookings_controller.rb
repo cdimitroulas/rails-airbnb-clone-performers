@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.performer_id = params[:performer_id]
 
     if @booking.save
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to performer_booking_path(id: @booking.id), notice: 'Booking was successfully created.'
     else
       render :new
     end

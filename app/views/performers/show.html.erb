@@ -51,17 +51,15 @@
   <div id="booking-table">
     <div class="row">
       <div class="col-xs-12 col-md-4">
-        <form>
-          <div class="booking-form form-group">
-            <h4>Book this performer</h4>
-            <%= simple_form_for [@performer, @booking] do |f| %>
-              <%= f.input :start_time %>
-              <%= f.input :end_time %>
-              <%= f.input :location %>
-              <%= f.button :submit %>
-            <% end %>
-          </div>
-        </form>
+        <div class="booking-form form-group">
+          <h4>Book this performer</h4>
+          <%= simple_form_for [@performer, @booking] do |f| %>
+            <%= f.input :start_time %>
+            <%= f.input :end_time %>
+            <%= f.input :location, placeholder: 'e.g. E1 6BT' %>
+            <%= f.button :submit, "Request a booking" %></%>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
