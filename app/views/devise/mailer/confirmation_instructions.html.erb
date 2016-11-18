@@ -1,5 +1,7 @@
 <h4>Welcome <%= @user.first_name %>!</h4>
 
+<p>Thanks for signing up to Showcase :)</p>
+
 <p>You can confirm your showcase account by clicking the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
