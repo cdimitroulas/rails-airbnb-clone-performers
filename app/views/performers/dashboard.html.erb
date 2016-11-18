@@ -13,41 +13,38 @@
         <div class="messages">
           <div class="row">
             <div class="col-md-12">
-              <div class="headtitle-profile">Your messages (<%= current_performer.messages_received.count %> new)</div>
+              <div class="headtitle-profile">Your messages (<%= current_performer.messages_received.where(read: false).count %> new)</div>
                 <% current_performer.messages_received.each do |message_received|%>
+                <%= link_to performer_message_path(current_performer, message_received) do %>
                 <div class="tables-row">
                   <div class="row">
                     <div class="col-md-1">
                         <img src="http://placehold.it/100x100" class="avatar">
                     </div>
                     <div class="col-md-2">
-                      <p> <%= message_received.sender.first_name %> <%= message_received.sender.last_name %></p>
-                      <p> <%= message_received.created_at %> </p>
+                      <p> <strong>Date: </strong></p>
+                      <p><%= message_received.created_at %> </p>
                     </div>
-                    <div class="col-md-9">
-                      <p> <%= message_received.content %> </p>
+                    <div class="col-md-2">
+                      <p> <strong>Sender: </strong></p>
+                      <p> <%= message_received.sender.first_name %> <%= message_received.sender.last_name %></p>
+                    </div>
+                    <div class="col-md-7">
+                      <div class="row">
+                        <p> <strong>Subject: </strong></p>
+                        <p> <%= message_received.subject %> </p>
+                      </div>
+                      <div class="row">
+                        <p> <%= message_received.content %> </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               <% end %>
-
-                <!-- <div class="tables-row">
-                  <div class="row">
-                    <div class="col-md-1">
-                      <img src="http://placehold.it/100x100" class="avatar">
-                    </div>
-                  <div class="col-md-2">
-                    <p> John Doe </p>
-                    <p> 11/11/16 </p>
-                  </div>
-                  <div class="col-md-9">
-                    <p> Hello, could you send me more info about what you do please? Many thanks </p>
-                  </div>
-                </div>
-              </div> -->
-            </div>
+            <% end %>
           </div>
         </div>
+      </div>
 
     <br>
 
