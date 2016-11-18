@@ -14,8 +14,8 @@
     <p>This request will become a live booking once the performer confirms his availability.</p>
   </div>
   <div class="confirm-buttons">
-    <%= button_to 'Go back', performer_path(id: @booking.performer.id), { class: "button-link btn btn-secondary"} %>
+    <%= link_to 'Go back', performer_path(id: @booking.performer.id), { class: "button-link btn btn-secondary"} %>
     <br>
-    <%= button_to 'Confirm your request', user_path, { class: "button-link btn btn-danger"} %>
+    <%= link_to 'Confirm your request', user_path, { class: "button-link btn btn-danger"} %>
   </div>
 </div>
