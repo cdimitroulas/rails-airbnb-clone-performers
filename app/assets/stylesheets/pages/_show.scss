@@ -28,6 +28,13 @@
 .btn-custom-red:hover {
   background-color: white;
 }
+.summary-box {
+  display: flex;
+  justify-content: space-around;
+}
 #reviews-header {
   margin-top: 0;
+}
+#booking-form {
+  border: 2px rgba(255, 163, 163, 1);
 }

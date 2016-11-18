@@ -8,68 +8,86 @@
   <div id="summary">
     <div class="row">
       <div class="col-xs-12 col-md-8">
-        <div class="profile-image">
-          <img src="<%= @performer.profile_picture %>" alt="profile-picture" class="avatar-large">
-        </div>
-        <div class="summary-component">
-          <h2><%= @performer.first_name + ' ' + @performer.last_name %></h2>
-          <h5><%= @performer.city %></h5>
+        <div class="summary-box">
+          <div class="profile-image">
+            <img src="<%= @performer.profile_picture %>" alt="profile-picture" class="avatar-large">
+          </div>
+          <div class="summary-component">
+            <h2><%= @performer.first_name + ' ' + @performer.last_name %></h2>
+            <h5><%= @performer.city %></h5>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="row text-center">
-      <div class="col-sm-12 col-md-8">
+      <div class="col-xs-12 col-md-8">
         <hr>
-        <div class="col-sm-3"><i class="fa fa-microphone big-icon" aria-hidden="true"></i></div>
-        <div class="col-sm-3"><i class="fa fa-thumbs-o-up big-icon" aria-hidden="true"></i></div>
-        <div class="col-sm-3"><i class="fa fa-money big-icon" aria-hidden="true"></i></div>
-        <div class="col-sm-3"><i class="fa fa-line-chart big-icon" aria-hidden="true"></i></div>
-      </div>
-    </div>
-
-    <div class="row text-center">
-      <div class="col-sm-12 col-md-8">
-        <div class="col-sm-3"><%= @performer.category %></div>
-        <div class="col-sm-3">Good for Parties</div>
-        <div class="col-sm-3">£ <%= @performer.hourly_rate %> /hour</div>
-        <div class="col-sm-3">
-          <% if @performer.reviews.blank? %>
-            No Reviews Yet!
-          <% else %>
-            Rated <%= average_rating(@performer) * 2 %>/10
-          <% end %>
+        <div class="summary-icons text-center">
+          <div class="col-sm-3"><i class="fa fa-microphone big-icon" aria-hidden="true"></i></div>
+          <div class="col-sm-3"><i class="fa fa-thumbs-o-up big-icon" aria-hidden="true"></i></div>
+          <div class="col-sm-3"><i class="fa fa-money big-icon" aria-hidden="true"></i></div>
+          <div class="col-sm-3"><i class="fa fa-line-chart big-icon" aria-hidden="true"></i></div>
         </div>
-        <hr>
       </div>
-    </div>
-  </div>
 
-  <div id="booking-table">
-    <div class="row">
+      <div class="col-xs-12 col-md-8">
+        <div class="summary-categories text-center">
+          <div class="col-sm-3">
+            <%= @performer.category %>
+          </div>
+          <div class="col-sm-3">
+            Good for Parties
+          </div>
+          <div class="col-sm-3">
+            £ <%= @performer.hourly_rate %> /hour
+          </div>
+          <div class="col-sm-3">
+            <% if @performer.reviews.blank? %>
+              No Reviews Yet!
+            <% else %>
+              Rated <%= average_rating(@performer) * 2 %>/10
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-8">
+        <hr>
+          <div class="summary-about">
+          <h4>About this performer</h4>
+          <p><%= @performer.profile %></p>
+          <%= link_to "Contact Performer", new_performer_message_path(@performer) %>
+        </div>
+      </div>
+
       <div class="col-xs-12 col-md-4">
-        <div class="booking-form form-group">
-          <h4>Book this performer</h4>
-          <%= simple_form_for [@performer, @booking] do |f| %>
-            <%= f.input :start_time %>
-            <%= f.input :end_time %>
-            <%= f.input :location, placeholder: 'e.g. E1 6BT' %>
-            <%= f.button :submit, "Request a booking" %></%>
-          <% end %>
+        <div id="booking-table">
+          <div class="booking-form form-group">
+            <h4>Book this performer</h4>
+            <%= simple_form_for [@performer, @booking] do |f| %>
+              <%= f.input :start_time %>
+              <%= f.input :end_time %>
+              <%= f.input :location, placeholder: 'e.g. E1 6BT' %>
+              <%= f.button :submit, "Request a booking" %></%>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
+    </div>
+
+    <div class="row text-center">
+
+    </div>
+  </div>
+
+
 
   <br>
 
   <div id="details">
     <div class="row">
-      <div class="col-sm-12">
-        <h4>About this performer</h4>
-        <p><%= @performer.profile %></p>
-        <%= link_to "Contact Performer", new_performer_message_path(@performer) %>
-      </div>
+
     </div>
 
     <hr>
