@@ -1,2 +1,21 @@
-<h1>Booking#show</h1>
-<p>Find me in app/views/booking/show.html.erb</p>
+<div class="container text-center">
+  <div id="booking-title">
+    <h1>Your booking request:</h1>
+  </div>
+
+  <div class="booking-details">
+    <p><strong>You have booked </strong><%= @booking.performer.first_name %></p>
+    <p><strong>From </strong><%= @booking.start_time %>
+    <strong> until </strong><%= @booking.end_time %></p>
+    <p><strong>at </strong><%= @booking.location %></p>
+    <p><strong>Message: </strong></p>
+    <p><%= @booking.message %></p>
+    <br>
+    <p>This request will become a live booking once the performer confirms his availability.</p>
+  </div>
+  <div class="confirm-buttons">
+    <%= link_to 'Go back', performer_path(id: @booking.performer.id), { class: "button-link btn btn-secondary"} %>
+    <br>
+    <%= link_to 'Confirm your request', user_path, { class: "button-link btn btn-danger"} %>
+  </div>
+</div>

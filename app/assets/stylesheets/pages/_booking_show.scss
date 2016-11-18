@@ -1,0 +1,16 @@
+#booking-title {
+  font-size: 90px;
+  margin: 100px 0 40px 0;
+}
+.confirm-buttons {
+  margin: 20px 0 100px 0;
+  text-decoration: none;
+  .button-link {
+    color: white;
+  }
+  :hover {
+    color: #720008;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

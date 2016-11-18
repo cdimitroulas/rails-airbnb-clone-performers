@@ -13,39 +13,38 @@
         <div class="messages">
           <div class="row">
             <div class="col-md-12">
-              <div class="headtitle-profile">Your messages (0 new)</div>
-                <div class="tables-row">
-                  <div class="row">
-                    <div class="col-md-1">
-                        <img src="http://placehold.it/100x100" class="avatar">
-                    </div>
-                    <div class="col-md-3">
-                      <p> Bob D </p>
-                      <p> 15/11/16 </p>
-                    </div>
-                    <div class="col-md-8">
-                      <p> Thank you for your email. I am a pop singer and would be happy to perform at your birthday party on the 26th of Nov. </p>
+              <div class="headtitle-profile">Your messages (<%= current_user.messages_received.where(read: false).count %> new)</div>
+                <% current_user.messages_received.each do |message_received|%>
+                <%= link_to user_message_path(current_user, message_received) do %>
+                  <div class="tables-row">
+                    <div class="row">
+                      <div class="col-md-1">
+                          <img src="http://placehold.it/100x100" class="avatar">
+                      </div>
+                      <div class="col-md-2">
+                        <p> <strong>Date: </strong></p>
+                        <p><%= message_received.created_at %> </p>
+                      </div>
+                      <div class="col-md-2">
+                        <p> <strong>Sender: </strong></p>
+                        <p> <%= message_received.sender.first_name %> <%= message_received.sender.last_name %></p>
+                      </div>
+                      <div class="col-md-7">
+                        <div class="row">
+                          <p> <strong>Subject: </strong></p>
+                          <p> <%= message_received.subject %> </p>
+                        </div>
+                        <div class="row">
+                          <p> <%= message_received.content %> </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="tables-row">
-                  <div class="row">
-                    <div class="col-md-1">
-                      <img src="http://placehold.it/100x100" class="avatar">
-                    </div>
-                  <div class="col-md-3">
-                    <p> John </p>
-                    <p> 11/11/16 </p>
-                  </div>
-                  <div class="col-md-8">
-                    <p> Thank you for your message </p>
-                  </div>
-                </div>
-              </div>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div>
-
     <br>
 
         <div class="bookings">

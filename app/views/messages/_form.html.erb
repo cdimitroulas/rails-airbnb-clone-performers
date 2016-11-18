@@ -1,7 +1,4 @@
-<div class="container">
-<h2 class="form-header">Send a message</h2>
-  <div class="form-inputs">
-  <%= simple_form_for [@performer, @message] do |f| %>
+<%= simple_form_for [performer, message] do |f| %>
     <%= f.error_notification %>
 
     <%= f.input :subject, autofocus: true %>
@@ -11,5 +8,3 @@
       <%= f.button :submit, "Send message", class: "navbar-wagon-button" %>
     </div>
   <% end %>
-  </div>
-</div>
