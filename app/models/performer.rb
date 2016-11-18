@@ -31,6 +31,7 @@ class Performer < ApplicationRecord
     results = results.with_category(params[:category])
     results = results.with_availability(params[:date])
     results = results.with_event_types(params[:event_types])
+    #results = results.with_hourly_rate(params[:min_price, :max_price])
     self.no_bookings.each { |result| results << result}
     binding.pry
     results.map{ |i| i.id }
@@ -86,5 +87,11 @@ class Performer < ApplicationRecord
 
   def self.no_bookings
     all.includes(:bookings).where( bookings: { performer_id: nil })
+  end
+
+  def self.with_hourly_rate(hourly_rate_search)
+    hourly_rate.present? ? where( hourly_rate_search[0] < performer.hourly_rate < hourly_rate_search[1] )
+
+
   end
 end
