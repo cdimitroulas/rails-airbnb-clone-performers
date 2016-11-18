@@ -51,26 +51,24 @@
           <div class="row">
             <div class="col-md-12">
               <div class="headtitle-profile">Your next booking</div>
-                <div class="tables-row">
-                  <div class="row">
-                    <div class="col-md-1">
-                        <img src="http://placehold.it/100x100" class="avatar">
-                    </div>
-                    <div class="col-md-2">
-                      <p> 26/11/16 </p>
-                    </div>
-                    <div class="col-md-2">
-                      <p>19:00</p>
-                      <p>21:00</p>
-                    </div>
-                    <div class="col-md-3">
-                        <p>Bob L.</p>
+                <% current_user.bookings.each do |booking|%>
+                  <div class="tables-row">
+                    <div class="row">
+                      <div class="col-md-1">
+                          <img src="http://placehold.it/100x100" class="avatar">
                       </div>
-                    <div class="col-md-4">
-                        <p>Pop singer</p>
+                      <div class="col-md-5">
+                        <p> <strong>Date and time: </strong></p>
+                        <p><%= booking.start_time %> </p>
+                        <p><%= booking.end_time %> </p>
+                      </div>
+                      <div class="col-md-6">
+                        <p> <strong>Artist name: </strong></p>
+                        <p> <%= Performer.find(booking.performer_id).artist_name %></p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
             </div>
           </div>
         </div>

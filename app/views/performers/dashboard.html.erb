@@ -52,54 +52,33 @@
           <div class="row">
             <div class="col-md-12">
               <div class="headtitle-profile">Your next performances</div>
+              <% current_performer.bookings.each do |booking|%>
+                <%#= link_to performer_message_path(current_performer, message_received) do %>
                 <div class="tables-row">
                   <div class="row">
                     <div class="col-md-1">
-                      <img src="http://placehold.it/100x100" class="avatar">
-                    </div>
-                    <div class="col-md-2 text-left">
-                      <p> 26/11/16 </p>
-                    </div>
-                    <div class="col-md-1 text-left">
-                      <p>20:00</p>
-                      <p>23:00</p>
-                    </div>
-                    <div class="col-md-2">
-                      <p>London</p>
-                      <p>EC2V 7AE</p>
-                    </div>
-                    <div class="col-md-2">
-                      <p>John Smith</p>
+                        <img src="http://placehold.it/100x100" class="avatar">
                     </div>
                     <div class="col-md-4">
-                      <p>30th birthday party with 50 people</p>
+                      <p> <strong>Date and time: </strong></p>
+                      <p><%= booking.start_time %> </p>
+                      <p><%= booking.end_time %> </p>
+                    </div>
+                    <div class="col-md-3">
+                      <p> <strong>Location: </strong></p>
+                      <p> <%= booking.location %></p>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="row">
+                        <p> <strong>Customer name: </strong></p>
+                        <p> <%= User.find(booking.user_id).first_name  %> <%= User.find(booking.user_id).first_name  %></p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                   <div class="tables-row">
-                  <div class="row">
-                    <div class="col-md-1">
-                      <img src="http://placehold.it/100x100" class="avatar">
-                    </div>
-                     <div class="col-md-2 text-left">
-                      <p> 02/12/16 </p>
-                    </div>
-                    <div class="col-md-1 text-left">
-                      <p>19:00</p>
-                      <p>21:00</p>
-                    </div>
-                    <div class="col-md-2">
-                      <p>London</p>
-                      <p>E1 6BT</p>
-                    </div>
-                    <div class="col-md-2">
-                      <p>Le Wagon</p>
-                    </div>
-                    <div class="col-md-4">
-                      <p>Private party</p>
-                    </div>
-                  </div>
-                </div>
+              <%# end %>
+            <% end %>
+
             </div>
           </div>
         </div>
