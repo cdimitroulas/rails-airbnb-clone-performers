@@ -21,6 +21,11 @@ class PerformersController < ApplicationController
 
   def edit
 
+    @markers = Gmaps4rails.build_markers(@performer) do |performer, marker|
+      marker.lat performer.latitude
+      marker.lng performer.longitude
+    end
+
     if current_performer.id == params[:id].to_i
       return
     else
