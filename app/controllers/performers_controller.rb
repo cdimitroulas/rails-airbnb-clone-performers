@@ -15,6 +15,8 @@ class PerformersController < ApplicationController
       marker.lat performer.latitude
       marker.lng performer.longitude
     end
+
+    @booking = @performer.bookings.build
   end
 
   def edit

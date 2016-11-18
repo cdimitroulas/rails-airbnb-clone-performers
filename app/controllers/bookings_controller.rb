@@ -9,9 +9,10 @@ class BookingsController < ApplicationController
 
     @booking = current_user.bookings.build(booking_params)
     @booking.performer_id = params[:performer_id]
+    # @price = @performer.hourly_rate * number_of_hours
 
     if @booking.save
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to performer_booking_path(id: @booking.id), notice: 'Booking was successfully created.'
     else
       render :new
     end
