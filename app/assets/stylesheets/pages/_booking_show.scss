@@ -5,7 +5,9 @@
 .confirm-buttons {
   margin: 20px 0 100px 0;
   text-decoration: none;
-  color: white;
+  .button-link {
+    color: white;
+  }
   :hover {
     color: #720008;
     text-decoration: none;
