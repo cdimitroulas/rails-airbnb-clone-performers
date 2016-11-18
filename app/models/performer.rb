@@ -29,11 +29,10 @@ class Performer < ApplicationRecord
   def self.search_filter(params)
     results = with_location.within_fifty(params[:postcode])
     results = results.with_category(params[:category])
+    results = results.with_hourly_rate([params[:min_price], params[:max_price]])
     results = results.with_availability(params[:date])
     results = results.with_event_types(params[:event_types])
-    #results = results.with_hourly_rate(params[:min_price, :max_price])
     self.no_bookings.each { |result| results << result}
-    binding.pry
     results.map{ |i| i.id }
     return where(id: results)
   end
@@ -90,8 +89,6 @@ class Performer < ApplicationRecord
   end
 
   def self.with_hourly_rate(hourly_rate_search)
-    hourly_rate.present? ? where( hourly_rate_search[0] < performer.hourly_rate < hourly_rate_search[1] )
-
-
+    hourly_rate_search.present? ? where(hourly_rate: hourly_rate_search[0]..hourly_rate_search[1]) : all
   end
 end
