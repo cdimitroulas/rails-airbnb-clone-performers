@@ -94,6 +94,6 @@ class Performer < ApplicationRecord
   end
 
   def self.with_hourly_rate(hourly_rate_search)
-    hourly_rate_search.blank? ? where(hourly_rate: hourly_rate_search[0].to_i..hourly_rate_search[1].to_i) : all
+    hourly_rate_search[0].present? ? where(hourly_rate: hourly_rate_search[0].to_i..hourly_rate_search[1].to_i) : all
   end
 end
