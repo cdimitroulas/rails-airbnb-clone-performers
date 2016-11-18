@@ -29,7 +29,6 @@ class Performer < ApplicationRecord
   def self.search_filter(params)
     results = with_location.within_fifty(params[:postcode])
     results = results.with_category(params[:category])
-    results = results.with_hourly_rate(params[:min_price, :max_price])
     results = results.with_event_types(params[:event_types])
 
     results
@@ -57,11 +56,5 @@ class Performer < ApplicationRecord
     else
       return all
     end
-  end
-
-  def self.with_hourly_rate(hourly_rate_search)
-    hourly_rate.present? ? where( hourly_rate_search[0] < performer.hourly_rate < hourly_rate_search[1] )
-
-
   end
 end
