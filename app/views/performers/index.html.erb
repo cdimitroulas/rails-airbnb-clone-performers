@@ -85,8 +85,8 @@
         $( "#slider-range" ).slider({
             range: true,
             min: 0,
-            max: 2000,
-            values: [ <%= j params[:min_price].present? ? params[:min_price] : '200' %>, <%= j params[:max_price].present? ? params[:max_price] : '500' %> ],
+            max: 200,
+            values: [ <%= j params[:min_price].present? ? params[:min_price] : '0' %>, <%= j params[:max_price].present? ? params[:max_price] : '200' %> ],
             slide: function( event, ui ) {
               $( "#amount" ).val( "£" + ui.values[ 0 ] + " - £" + ui.values[ 1 ] );
               $('[name=min_price]').val(ui.values[0]);
