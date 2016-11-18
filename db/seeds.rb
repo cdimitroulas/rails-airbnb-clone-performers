@@ -1,18 +1,12 @@
-pictures = ["image/upload/v1479372720/Airbnb-clone/accordion-musical-instrument-handzuginstrument-musician-163823.jpg",
-            "image/upload/v1479209538/Airbnb-clone/Snoop.jpg",
-            "image/upload/v1479372704/Airbnb-clone/person-woman-music-musician.jpg",
-            "image/upload/v1479372660/Airbnb-clone/pexels-photo-111253.jpg",
-            "image/upload/v1479372635/Airbnb-clone/pexels-photo-132929.jpg",
-            "image/upload/v1479372621/Airbnb-clone/fire-eaters-artist-juggler-fire-39075.jpg",
-            "image/upload/v1479372611/Airbnb-clone/juggler-performer-water-sea-65297.jpg",
-            "image/upload/v1479372599/Airbnb-clone/sing-singing-singer-microphone-64274.jpg",
-            "image/upload/v1479372579/Airbnb-clone/pexels-photo-167519.jpg",
-            "image/upload/v1479372563/Airbnb-clone/pexels-photo-167468.jpg",
-            "image/upload/v1479372549/Airbnb-clone/pexels-photo-167444.jpg",
-            "image/upload/v1479372535/Airbnb-clone/pexels-photo-89909.jpg",
-            "image/upload/v1479372802/Airbnb-clone/man-person-red-white.jpg",
-            "image/upload/v1479373066/Airbnb-clone/pexels-photo-167446.jpg",
-            "image/upload/v1479208813/Airbnb-clone/gettyimages_117087793_wide-4f9cc3824e22a75519017d35ddf5fb2e54e672f1-s900-c85.jpg"]
+pictures = ["image/upload/v1479312948/Airbnb-clone/pexels-photo-29272.jpg",
+            "image/upload/v1479313027/Airbnb-clone/pexels-photo-144428.jpg",
+            "image/upload/v1479312917/Airbnb-clone/pexels-photo-167386.jpg",
+            "image/upload/v1479488440/Airbnb-clone/pexels-photo-167486.jpg",
+            "image/upload/v1479488478/Airbnb-clone/pexels-photo-89907.jpg",
+            "image/upload/v1479488426/Airbnb-clone/pexels-photo-167378.jpg",
+            "image/upload/v1479488402/Airbnb-clone/pexels-photo-167465.jpg",
+            "image/upload/v1479488384/Airbnb-clone/guitar-classical-guitar-acoustic-guitar-electric-guitar.jpg",
+            "image/upload/v1479488374/Airbnb-clone/pexels-photo-167523.jpg"]
 
 categories = ["Rock", "Pop", "DJ", "Entertainer"]
 
@@ -58,7 +52,7 @@ address_array = ['3 The Square High Road London E10 5HR',
 
 50.times do
   performer = Performer.new(email: Faker::Internet.email, password: Devise.friendly_token[0,20],
-                 first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+                 first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, artist_name: Faker::Hipster.word,
                  phone_number: Faker::PhoneNumber.cell_phone, city: cities.sample,
                  postcode: postcode_array[rand(0..postcode_array.length)], event_types: event_types.sample,
                  category: categories.sample, hourly_rate: rand(10..60),
