@@ -16,6 +16,9 @@ pictures = ["image/upload/v1479372720/Airbnb-clone/accordion-musical-instrument-
 
 categories = ["Rock", "Pop", "DJ", "Entertainer"]
 
+event_types = [["Wedding", "Private party"], ["Private party", "Corporate event"], ["Private party"], ["Corporate event", "Private party", "Wedding"],
+               ["Wedding", "Charity event"], ["Charity event", "Private party"], ["Charity event", "Private party", "Wedding"]]
+
 postcode_array = ['E10 5HR', 'E6 2LA', 'CM15 0BH', 'CM5 9BG', 'CM9 8QJ', 'CM3 6PA',
   'SW19 8NG', 'SW18 1GQ', 'SW6 3DP', 'SW9 7RY', 'RH14 9EP', 'RH2 7NX', 'RH16 3PH',
   'WC1N 1NN', 'WC2N 6HY', 'WC1H 0PJ', 'S70 5JS', 'S43 2AT', 'S42 6BX', 'S8 9JF',
@@ -57,7 +60,7 @@ address_array = ['3 The Square High Road London E10 5HR',
   performer = Performer.new(email: Faker::Internet.email, password: Devise.friendly_token[0,20],
                  first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
                  phone_number: Faker::PhoneNumber.cell_phone, city: cities.sample,
-                 postcode: postcode_array[rand(0..postcode_array.length)],
+                 postcode: postcode_array[rand(0..postcode_array.length)], event_types: event_types.sample,
                  category: categories.sample, hourly_rate: rand(10..60),
                  profile: "Why do you build me up (build me up) Buttercup, baby
                           Just to let me down (let me down) and mess me around

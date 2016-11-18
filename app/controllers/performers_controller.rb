@@ -2,16 +2,7 @@ class PerformersController < ApplicationController
   before_action :set_performer, only: [:show, :edit, :update]
 
   def index
-    @performers = Performer.where.not(latitude: nil, longitude: nil)
-    if params[:postcode].present?
-      @performers = @performers.near(params[:postcode], 50)
-    end
-    if params[:category].present?
-      @performers = @performers.where(category: params[:category])
-    end
-    if params[:event_types].present?
-      @performers = @performers.where(event_types: params[:event_types])
-    end
+    @performers = Performer.search_filter(params)
 
     @markers = Gmaps4rails.build_markers(@performers) do |performer, marker|
       marker.lat performer.latitude

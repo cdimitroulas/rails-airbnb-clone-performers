@@ -6,11 +6,24 @@
 
           <div class="col-xs-6 col-md-3 form-group">
             <label>Event</label>
-            <input value="<%= params[:event] %>" class="form-control" name="event">
+            <select class="form-control" name="event_types">
+              <option></option>
+              <option <%= 'selected' if params[:event_types] == "Private party" %> >Private party</option>
+              <option <%= 'selected' if params[:event_types] == "Corporate event" %>>Corporate event</option>
+              <option <%= 'selected' if params[:event_types] == "Wedding" %>>Wedding</option>
+              <option <%= 'selected' if params[:event_types] == "Charity event" %>>Charity event</option>
+            </select>
+            <!-- <input value="<%#= params[:event_types] %>" class="form-control" name="event_types"> -->
           </div>
           <div class="col-xs-6 col-md-3 form-group">
             <label>Category</label>
-            <input value="<%= params[:category] %>" class="form-control" name="category">
+            <select class="form-control" name="category">
+              <option></option>
+              <option <%= 'selected' if params[:event_types] == "Rock" %>>Rock</option>
+              <option <%= 'selected' if params[:event_types] == "Pop" %>>Pop</option>
+              <option <%= 'selected' if params[:event_types] == "DJ" %>>DJ</option>
+              <option <%= 'selected' if params[:event_types] == "Entertainer" %>>Entertainer</option>
+            </select>
           </div>
           <div class="col-xs-6 col-md-3 form-group">
             <label>Date</label>
@@ -71,9 +84,19 @@
 <div class="wrapper" id="search-results">
   <div class="container">
     <div class="row">
-      <% @performers.each do |performer| %>
+      <% if @performers.length > 1  %>
+        <% @performers.each do |performer| %>
+          <div class="listing-cards col-xs-12 col-md-4">
+            <%= render "shared/cards", performer: performer%>
+          </div>
+        <% end %>
+      <% elsif @performers.blank? %>
+        <h1 class="text-center">No results found!</h3>
+      <% else %>
         <div class="listing-cards col-xs-12 col-md-4">
-          <%= render "shared/cards", performer: performer %>
+          <% @performers.each do |performer| %>
+            <%= render "shared/cards", performer: performer %>
+          <% end %>
         </div>
       <% end %>
     </div>
