@@ -74,7 +74,7 @@
       <div id="booking-table">
         <div class="booking-form form-group">
           <h4>Book this performer</h4>
-          <%= simple_form_for [@performer, @booking] do |f| %>
+          <%= simple_form_for [@performer, @booking], id: 'form-booking' do |f| %>
             <%= f.input :start_time %>
             <%= f.input :end_time %>
             <%= f.input :location, placeholder: 'e.g. E1 6BT' %>
