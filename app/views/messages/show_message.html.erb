@@ -3,10 +3,10 @@
     <div class="col-sm-8 col-offset-sm-2">
       <div class="container-message">
         <div class="row">
-        <h1>Discussion with <%= current_performer.first_name %></h1>
+        <h1>Discussion with <%= current_user.first_name %></h1>
         <br>
           <div class="row">
-          <%= link_to 'Go back to Dashboard', dashboard_path(current_performer) %>
+          <%= link_to 'Go back to Profile', user_path(current_user) %>
           </div>
           <br>
             <div class="row">
@@ -35,8 +35,8 @@
             </div>
           </div>
         <br>
-            <%= render 'form_new_performer_message', user: @user, message: @user.messages_received.build %>
-            </div>
+            <%= render 'form', performer: @performer, message: current_user.messages_sent.build %>
+      </div>
       </div>
     </div>
   </div>
