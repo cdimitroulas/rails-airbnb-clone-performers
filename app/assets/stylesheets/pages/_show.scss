@@ -35,8 +35,12 @@
 #reviews-header {
   margin-top: 0;
 }
-#form-booking {
-  border: 2px rgba(255, 163, 163, 1);
+#new_booking {
+  padding: 8px;
+  border: 2px solid;
+  border-color: rgba(251, 250, 250, 1);;
+  background-size: cover;
+  background-color: rgba(240, 240, 240, 1);
   margin: 20px 0 10px 0;
 }
 #show-profile-picture {
