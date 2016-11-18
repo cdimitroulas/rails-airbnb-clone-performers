@@ -13,7 +13,6 @@ class MessagesController < ApplicationController
     @message.sender = current_user
     @message.recipient = Performer.find(params[:performer_id])
     # @message = current_user.messages.build(message_params)
-    binding.pry
     if @message.save
       redirect_to user_path(current_user), notice: 'Message was successfully sent.'
     else

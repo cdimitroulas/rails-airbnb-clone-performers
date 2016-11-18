@@ -86,16 +86,13 @@
     <div class="row">
       <% if @performers.length > 1  %>
         <% @performers.each do |performer| %>
-          <%#= binding.pry %>
           <div class="listing-cards col-xs-12 col-md-4">
             <%= render "shared/cards", performer: performer%>
           </div>
         <% end %>
       <% elsif @performers.blank? %>
-        <%#= binding.pry %>
         <h1 class="text-center">No results found!</h3>
       <% else %>
-        <%#= binding.pry %>
         <div class="listing-cards col-xs-12 col-md-4">
           <% @performers.each do |performer| %>
             <%= render "shared/cards", performer: performer %>
