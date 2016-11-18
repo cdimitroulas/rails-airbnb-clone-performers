@@ -17,8 +17,8 @@
 }
 .big-icon {
   color: #56626C;
-  font-size: 30px;
-  padding: 10px 0;
+  font-size: 25px;
+  padding: 8px 0;
 }
 .btn-custom-red {
   background-color: #FF7E82;
@@ -28,6 +28,17 @@
 .btn-custom-red:hover {
   background-color: white;
 }
+.summary-box {
+  display: flex;
+  justify-content: flex-start;
+}
 #reviews-header {
   margin-top: 0;
+}
+#form-booking {
+  border: 2px rgba(255, 163, 163, 1);
+  margin: 20px 0 10px 0;
+}
+#show-profile-picture {
+  margin: 0 30px 0 10px;
 }
