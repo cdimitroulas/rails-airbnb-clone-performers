@@ -29,9 +29,12 @@ class Performer < ApplicationRecord
   def self.search_filter(params)
     results = with_location.within_fifty(params[:postcode])
     results = results.with_category(params[:category])
+    results = results.with_availability(params[:date])
     results = results.with_event_types(params[:event_types])
-
-    results
+    self.no_bookings.each { |result| results << result}
+    binding.pry
+    results.map{ |i| i.id }
+    return where(id: results)
   end
 
   def self.with_location
@@ -56,5 +59,32 @@ class Performer < ApplicationRecord
     else
       return all
     end
+  end
+
+  def self.with_availability(date)
+    if date.present?
+
+      all.joins(:bookings).where.not(bookings: { start_time: date.to_date })
+
+      # binding.pry
+      # results = all.joins(:bookings).where.not(bookings: { start_time: date.to_date })
+      # binding.pry
+      # results.or(results_no_bookings)
+      # do |performer|
+      #  if performer.bookings.present?
+      #    performer.bookings.each do |booking|
+      #      results << performer unless booking.start_time.to_date == date.to_date
+      #    end
+      #  else
+      #    results << performer
+      #  end
+      # end
+    else
+      return all
+    end
+  end
+
+  def self.no_bookings
+    all.includes(:bookings).where( bookings: { performer_id: nil })
   end
 end
