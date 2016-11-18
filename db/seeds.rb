@@ -71,14 +71,17 @@ address_array = ['3 The Square High Road London E10 5HR',
                           So build me up (build me up) Buttercup, don't break my heart")
 
   performer.write_attribute :picture, pictures.sample
-  performer.save
+  performer.skip_confirmation!
+  performer.save!
 end
 
 20.times do
-  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+  user = User.new!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
               phone_number: Faker::PhoneNumber.cell_phone , address: address_array[rand(0..address_array.length)],
               email: Faker::Internet.email, password: 'password',
               profile_picture: nil )
+  user.skip_confirmation!
+  user.save!
 end
 
 user_reviews = ["Amazing! Best performance I\'ve ever seen! Definitely recommend!",

@@ -25,6 +25,9 @@ gem 'faker'
 gem 'cloudinary'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 
+# Email testing
+gem 'letter_opener', group: :development
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
