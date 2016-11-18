@@ -29,9 +29,17 @@ class Performer < ApplicationRecord
   def self.search_filter(params)
     results = with_location.within_fifty(params[:postcode])
     results = results.with_category(params[:category])
+    results = results.with_hourly_rate([params[:min_price], params[:max_price]])
+    #results = results.with_availability(params[:date])
     results = results.with_event_types(params[:event_types])
-
-    results
+    return results
+    # if params[:event_types].present?
+    #   self.no_bookings.each { |result| results << result}
+    #   results.map{ |i| i.id }
+    #   return where(id: results)
+    # else
+    #   return results
+    # end
   end
 
   def self.with_location
@@ -56,5 +64,36 @@ class Performer < ApplicationRecord
     else
       return all
     end
+  end
+
+  def self.with_availability(date)
+    if date.present?
+
+      all.joins(:bookings).where.not(bookings: { start_time: date.to_date })
+
+      # binding.pry
+      # results = all.joins(:bookings).where.not(bookings: { start_time: date.to_date })
+      # binding.pry
+      # results.or(results_no_bookings)
+      # do |performer|
+      #  if performer.bookings.present?
+      #    performer.bookings.each do |booking|
+      #      results << performer unless booking.start_time.to_date == date.to_date
+      #    end
+      #  else
+      #    results << performer
+      #  end
+      # end
+    else
+      return all
+    end
+  end
+
+  def self.no_bookings
+    all.includes(:bookings).where( bookings: { performer_id: nil })
+  end
+
+  def self.with_hourly_rate(hourly_rate_search)
+    hourly_rate_search.present? ? where(hourly_rate: hourly_rate_search[0].to_i..hourly_rate_search[1].to_i) : all
   end
 end
