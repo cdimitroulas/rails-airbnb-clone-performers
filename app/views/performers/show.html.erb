@@ -93,7 +93,7 @@
         <h4>Prices</h4>
       </div>
       <div class="col-sm-9">
-        <p>Rate: <strong><%= @performer.hourly_rate ? @performer.hourly_rate : 'Tbc' %></strong></p>
+        <p>Rate: <strong><%= @performer.hourly_rate ? '£ ' + @performer.hourly_rate.to_s + ' /hour' : 'Tbc' %></strong></p>
         <p>Weekday Discount: <strong><%= @performer.discount ? @performer.discount : '25' %>%</strong></p>
         <p>Cancellation: <strong><%= @performer.cancellation_policy ? @performer.cancellation_policy : 'Flexible' %></strong></p>
       </div>
