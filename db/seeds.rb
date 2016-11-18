@@ -76,7 +76,7 @@ address_array = ['3 The Square High Road London E10 5HR',
 end
 
 20.times do
-  user = User.new!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+  user = User.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
               phone_number: Faker::PhoneNumber.cell_phone , address: address_array[rand(0..address_array.length)],
               email: Faker::Internet.email, password: 'password',
               profile_picture: nil )
