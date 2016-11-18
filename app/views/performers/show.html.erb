@@ -8,88 +8,84 @@
   <div id="summary">
     <div class="row">
       <div class="col-xs-12 col-md-8">
-        <div class="summary-box">
-          <div class="profile-image">
-            <img src="<%= @performer.profile_picture %>" alt="profile-picture" class="avatar-large">
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="summary-box">
+              <div class="profile-image">
+                <img src="<%= @performer.profile_picture %>" alt="profile-picture" class="avatar-large" id="show-profile-picture">
+              </div>
+              <div class="summary-component">
+                <h2><%= @performer.first_name + ' ' + @performer.last_name %></h2>
+                <h5><%= @performer.city %></h5>
+              </div>
+            </div>
           </div>
-          <div class="summary-component">
-            <h2><%= @performer.first_name + ' ' + @performer.last_name %></h2>
-            <h5><%= @performer.city %></h5>
+        </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <hr>
+          <div class="summary-icons text-center">
+            <div class="col-sm-3"><i class="fa fa-microphone big-icon" aria-hidden="true"></i></div>
+            <div class="col-sm-3"><i class="fa fa-thumbs-o-up big-icon" aria-hidden="true"></i></div>
+            <div class="col-sm-3"><i class="fa fa-money big-icon" aria-hidden="true"></i></div>
+            <div class="col-sm-3"><i class="fa fa-line-chart big-icon" aria-hidden="true"></i></div>
           </div>
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-8">
-        <hr>
-        <div class="summary-icons text-center">
-          <div class="col-sm-3"><i class="fa fa-microphone big-icon" aria-hidden="true"></i></div>
-          <div class="col-sm-3"><i class="fa fa-thumbs-o-up big-icon" aria-hidden="true"></i></div>
-          <div class="col-sm-3"><i class="fa fa-money big-icon" aria-hidden="true"></i></div>
-          <div class="col-sm-3"><i class="fa fa-line-chart big-icon" aria-hidden="true"></i></div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-md-8">
-        <div class="summary-categories text-center">
-          <div class="col-sm-3">
-            <%= @performer.category %>
-          </div>
-          <div class="col-sm-3">
-            Good for Parties
-          </div>
-          <div class="col-sm-3">
-            £ <%= @performer.hourly_rate %> /hour
-          </div>
-          <div class="col-sm-3">
-            <% if @performer.reviews.blank? %>
-              No Reviews Yet!
-            <% else %>
-              Rated <%= average_rating(@performer) * 2 %>/10
-            <% end %>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="summary-categories text-center">
+            <div class="col-sm-3">
+              <%= @performer.category %>
+            </div>
+            <div class="col-sm-3">
+              Good for Parties
+            </div>
+            <div class="col-sm-3">
+              £ <%= @performer.hourly_rate %> /hour
+            </div>
+            <div class="col-sm-3">
+              <% if @performer.reviews.blank? %>
+                No Reviews Yet!
+              <% else %>
+                Rated <%= average_rating(@performer) * 2 %>/10
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-8">
-        <hr>
-          <div class="summary-about">
-          <h4>About this performer</h4>
-          <p><%= @performer.profile %></p>
-          <%= link_to "Contact Performer", new_performer_message_path(@performer) %>
+      <div class="row">
+        <div class="col-xs-12">
+          <hr>
+            <div class="summary-about">
+            <h4>About this performer</h4>
+            <p><%= @performer.profile %></p>
+            <%= link_to "Contact Performer", new_performer_message_path(@performer) %>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="col-xs-12 col-md-4">
-        <div id="booking-table">
-          <div class="booking-form form-group">
-            <h4>Book this performer</h4>
-            <%= simple_form_for [@performer, @booking] do |f| %>
-              <%= f.input :start_time %>
-              <%= f.input :end_time %>
-              <%= f.input :location, placeholder: 'e.g. E1 6BT' %>
-              <%= f.button :submit, "Request a booking" %></%>
-            <% end %>
-          </div>
+    <div class="col-xs-12 col-md-4">
+      <div id="booking-table">
+        <div class="booking-form form-group">
+          <h4>Book this performer</h4>
+          <%= simple_form_for [@performer, @booking] do |f| %>
+            <%= f.input :start_time %>
+            <%= f.input :end_time %>
+            <%= f.input :location, placeholder: 'e.g. E1 6BT' %>
+            <%= f.button :submit, "Request a booking" %></%>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-    </div>
-
-    <div class="row text-center">
-
-    </div>
-  </div>
-
-
-
-  <br>
 
   <div id="details">
-    <div class="row">
-
-    </div>
-
     <hr>
 
     <div class="row">
@@ -168,7 +164,7 @@
   <div id="contact-button">
     <div class="row">
       <div class="col-sm-12">
-        <%= link_to "Book Performer", new_performer_booking_path(@performer), class: "btn btn-secondary btn-custom-red btn-lg" %>
+        <a href="#booking-table"><button class="btn btn-secondary btn-custom-red btn-lg">Book performer</button></a>
       </div>
     </div>
   </div>
@@ -210,3 +206,18 @@
 <% content_for(:title) do %>
   <%= 'Showcase - ' + @performer.first_name + ' ' + @performer.last_name  %>
 <% end %>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
