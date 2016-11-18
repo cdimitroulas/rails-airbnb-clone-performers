@@ -49,7 +49,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Mailer delivery method
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :letter_opener
 
   # Default url option (devise config)
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
